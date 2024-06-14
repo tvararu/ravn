@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   private
 
-  class Home < ApplicationView
+  class Home < ApplicationComponent
     def view_template
       div do
         h1(class: "font-bold text-4xl") { "Pages#home" }
