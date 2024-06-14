@@ -6,7 +6,6 @@ gem "rails"
 
 gem "bootsnap", require: false
 gem "importmap-rails"
-gem "jbuilder"
 gem "propshaft"
 gem "pg"
 gem "puma"
