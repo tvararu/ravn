@@ -99,6 +99,8 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dockerfile-rails (1.6.16)
+      rails (>= 3.0.0)
     drb (2.2.1)
     erubi (1.13.0)
     globalid (1.2.1)
@@ -266,6 +268,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  dockerfile-rails
   importmap-rails
   jbuilder
   pg

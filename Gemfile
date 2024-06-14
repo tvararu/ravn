@@ -16,6 +16,7 @@ gem "turbo-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
+  gem "dockerfile-rails"
 end
 
 group :development do
