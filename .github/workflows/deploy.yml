@@ -1,11 +1,10 @@
 name: Deploy
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
 jobs:
   fly:
-    name: Deploy
+    name: Fly
     runs-on: ubuntu-latest
     concurrency: deploy-group # optional: ensure only one action runs at a time
     steps:
