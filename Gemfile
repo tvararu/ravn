@@ -8,6 +8,7 @@ gem "bootsnap", require: false
 gem "importmap-rails"
 gem "propshaft"
 gem "pg"
+gem "phlex-rails"
 gem "puma"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
