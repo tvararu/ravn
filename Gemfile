@@ -19,6 +19,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "rufo"
   gem "web-console"
 end
 

@@ -208,6 +208,7 @@ GEM
     rexml (3.3.0)
       strscan
     rubyzip (2.3.2)
+    rufo (0.18.0)
     selenium-webdriver (4.21.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -274,6 +275,7 @@ DEPENDENCIES
   propshaft
   puma
   rails
+  rufo
   selenium-webdriver
   sqlite3
   stimulus-rails
