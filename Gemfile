@@ -17,6 +17,7 @@ gem "turbo-rails"
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem "dockerfile-rails"
+  gem "rubocop-rails-omakase", require: false
 end
 
 group :development do
