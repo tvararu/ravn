@@ -21,6 +21,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "hotwire-livereload"
   gem "rufo"
   gem "web-console"
 end
