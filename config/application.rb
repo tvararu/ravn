@@ -27,8 +27,5 @@ module Ravn
     config.autoload_paths << "#{root}/app/views"
     config.autoload_paths << "#{root}/app/views/layouts"
     config.autoload_paths << "#{root}/app/views/components"
-
-    config.hotwire_livereload.reload_method = :turbo_stream
-    config.hotwire_livereload.listen_paths << Rails.root.join("app/controllers")
   end
 end
