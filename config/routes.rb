@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  get "up" => "rails/health#show", as: :rails_health_check
+  get "up", to: "rails/health#show", as: :rails_health_check
+
+  get "profile", to: "users#show"
 end
