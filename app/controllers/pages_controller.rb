@@ -11,15 +11,13 @@ class PagesController < ApplicationController
     end
 
     def view_template
-      div do
-        h1(class: "font-bold text-4xl") { "Home" }
+      h1(class: "font-bold text-4xl") { "Home" }
 
-        if @current_user
-          p { link_to "My profile", profile_path }
-          p { button_to "Logout", destroy_user_session_path, method: :delete }
-        else
-          p { link_to "Sign in", new_user_session_path }
-        end
+      if @current_user
+        p { link_to "My profile", profile_path }
+        p { button_to "Logout", destroy_user_session_path, method: :delete }
+      else
+        p { link_to "Sign in", new_user_session_path }
       end
     end
   end
