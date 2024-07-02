@@ -1,4 +1,5 @@
 class ApplicationLayout < ApplicationComponent
+  include Phlex::Rails::Helpers::Flash
   include Phlex::Rails::Layout
   include Hotwire::Livereload::LivereloadTagsHelper if Rails.env.development?
 
@@ -22,7 +23,13 @@ class ApplicationLayout < ApplicationComponent
       end
 
       body do
-        main(**classes(%w[container mx-auto p-5]), &block)
+        main(**classes(%w[container mx-auto p-5])) do
+          flash.each do |_, message|
+            p(class: "bg-blue-500 text-white p-4 rounded-md") { message }
+          end
+
+          yield
+        end
       end
     end
   end
