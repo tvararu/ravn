@@ -3,7 +3,7 @@ class ApplicationComponent < Phlex::HTML
   include Phlex::Rails::Helpers::LinkTo
   include Phlex::Rails::Helpers::Routes
 
-  if Rails.env.development?
+  unless Rails.env.production?
     def before_template
       comment { "Before #{self.class.name}" }
       super
