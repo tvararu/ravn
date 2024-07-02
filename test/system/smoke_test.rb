@@ -4,6 +4,6 @@ class SmokesTest < ApplicationSystemTestCase
   test "visiting the home page" do
     visit root_url
 
-    assert_selector "h1", text: "Pages#home"
+    assert_selector "h1", text: "Home"
   end
 end
