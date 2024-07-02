@@ -5,6 +5,7 @@ ruby "3.3.3"
 gem "rails"
 
 gem "bootsnap", require: false
+gem "devise"
 gem "importmap-rails"
 gem "propshaft"
 gem "pg"
