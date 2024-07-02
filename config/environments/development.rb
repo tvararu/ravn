@@ -73,4 +73,6 @@ Rails.application.configure do
 
   config.hotwire_livereload.reload_method = :turbo_stream
   config.hotwire_livereload.listen_paths << Rails.root.join("app/controllers")
+
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 end
