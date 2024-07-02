@@ -22,7 +22,7 @@ class ApplicationLayout < ApplicationComponent
       end
 
       body do
-        main(**classes(%w[container mx-auto mt-28 px-5 flex]), &block)
+        main(**classes(%w[container mx-auto p-5]), &block)
       end
     end
   end
