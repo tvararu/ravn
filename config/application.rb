@@ -30,7 +30,5 @@ module Ravn
     Dir["packs/*/app/views/components"].each do |path|
       config.autoload_paths << path
     end
-
-    config.active_record.encryption.support_unencrypted_data = true
   end
 end
