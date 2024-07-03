@@ -28,4 +28,4 @@ jobs:
           bundler-cache: true
       - run: bin/rails db:test:prepare
       - run: bin/rails assets:precompile
-      - run: bin/rails test:all
+      - run: bin/rails test:all test packs/*

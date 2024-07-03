@@ -4,4 +4,4 @@ set -e
 
 bin/rubocop -A
 bin/bundle exec rufo .
-bin/rails test:all
+bin/rails test:all test packs/*
