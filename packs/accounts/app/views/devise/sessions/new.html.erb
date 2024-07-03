@@ -3,17 +3,17 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="my-5">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered" %>
   </div>
 
   <div class="my-5">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "input input-bordered" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="form-control my-5">
-      <%= f.label :remember_me, class: "label cursor-pointer justify-normal" do %>
+      <%= f.label :remember_me, class: "label cursor-pointer justify-normal pl-0" do %>
         <%= f.check_box :remember_me, class: "checkbox checkbox-lg" %>
         <span class="label-text ml-2 text-base">Remember me</span>
       <% end %>
