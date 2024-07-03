@@ -27,8 +27,10 @@ module Ravn
     config.autoload_paths << "#{root}/app/views"
     config.autoload_paths << "#{root}/app/views/layouts"
     config.autoload_paths << "#{root}/app/views/components"
+    # :nocov:
     Dir["packs/*/app/views/components"].each do |path|
       config.autoload_paths << path
     end
+    # :nocov:
   end
 end
