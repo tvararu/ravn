@@ -8,9 +8,9 @@ class ApplicationLayout < ApplicationComponent
 
     html(lang: "en") do
       head do
-        title { "Ravn" }
+        title { t("app") }
         meta name: "viewport", content: "width=device-width,initial-scale=1"
-        meta name: "description", content: "Ravn"
+        meta name: "description", content: t("app")
 
         csp_meta_tag
         csrf_meta_tags
