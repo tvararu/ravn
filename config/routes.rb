@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  draw :accounts
 
   root to: "pages#home"
-
   get "up", to: "rails/health#show", as: :rails_health_check
-
-  draw :accounts
 end
