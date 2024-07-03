@@ -22,5 +22,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :memberships, dependent: :destroy
+  has_many :teams, through: :memberships
+
   encrypts :email, deterministic: true, downcase: true
 end
