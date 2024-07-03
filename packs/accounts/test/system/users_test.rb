@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-class AccountsTest < ApplicationSystemTestCase
+class UsersTest < ApplicationSystemTestCase
   test "profile requires account" do
     visit profile_path
     assert_selector "p", text: "You need to sign in"
