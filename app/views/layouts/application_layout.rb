@@ -25,7 +25,7 @@ class ApplicationLayout < ApplicationComponent
       body do
         main(**classes(%w[container mx-auto p-5])) do
           flash.each do |_, message|
-            p(class: "bg-blue-500 text-white p-4 rounded-md") { message }
+            p(class: "alert mb-5") { message }
           end
 
           yield
