@@ -72,7 +72,11 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   config.hotwire_livereload.reload_method = :turbo_stream
-  config.hotwire_livereload.listen_paths << Rails.root.join("app/controllers")
+  ([Rails.root.join("app/controllers")] +
+   Dir["packs/*/app/views"] +
+   Dir["packs/*/app/controllers"]).each do |path|
+    config.hotwire_livereload.listen_paths << path
+  end
 
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 end
