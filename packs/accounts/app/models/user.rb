@@ -26,4 +26,13 @@ class User < ApplicationRecord
   has_many :teams, through: :memberships
 
   encrypts :email, deterministic: true, downcase: true
+
+  after_create :create_personal_team
+
+  private
+
+  def create_personal_team
+    team = Team.create!(name: "Personal")
+    memberships.create!(team:, personal: true)
+  end
 end
