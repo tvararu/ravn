@@ -13,7 +13,11 @@ class UsersController < ApplicationController
     end
 
     def view_template
+      h1 { "Profile" }
       p { "Hello #{@current_user.email}" }
+
+      h2 { "Teams" }
+      ul { @current_user.teams.each { |team| li { team.name } } }
     end
   end
 end
