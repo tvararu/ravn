@@ -9,6 +9,8 @@ module ActiveSupport
     # Run tests in parallel with specified workers
     parallelize(workers: :number_of_processors)
 
+    self.fixture_paths += Dir["#{Rails.root}/packs/*/test/fixtures"]
+
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
 
