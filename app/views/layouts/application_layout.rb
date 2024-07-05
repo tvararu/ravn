@@ -15,10 +15,9 @@ class ApplicationLayout < ApplicationComponent
         csp_meta_tag
         csrf_meta_tags
         stylesheet_link_tag(
-          "tailwind", "inter-font", "application",
+          "application",
           data_turbo_track: Rails.env.production? ? "reload" : "",
         )
-        javascript_importmap_tags
         hotwire_livereload_tags if Rails.env.development?
       end
 

@@ -6,15 +6,15 @@ gem "rails"
 
 gem "bootsnap", require: false
 gem "config"
+gem "cssbundling-rails"
 gem "devise"
-gem "importmap-rails"
-gem "propshaft"
+gem "jsbundling-rails"
+gem "packs-rails"
 gem "pg"
 gem "phlex-rails"
-gem "packs-rails"
+gem "propshaft"
 gem "puma"
 gem "stimulus-rails"
-gem "tailwindcss-rails"
 gem "turbo-rails"
 
 group :development, :test do
