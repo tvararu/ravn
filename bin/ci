@@ -2,6 +2,7 @@
 
 set -e
 
-bin/rubocop -A
+bin/rubocop --autocorrect-all
 bin/bundle exec rufo .
+yarn prettier --write --list-different --ignore-unknown .
 bin/rails test:all test packs/*

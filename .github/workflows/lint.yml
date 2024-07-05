@@ -3,6 +3,20 @@ on:
   push:
     branches: ["**"]
 jobs:
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .tool-versions
+          cache: yarn
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn prettier --check --ignore-unknown '**/*'
   rubocop:
     name: Rubocop
     runs-on: ubuntu-latest

@@ -4,7 +4,6 @@
 
 # Change to `true` to turn on dependency checks for this package
 enforce_dependencies: false
-
 # A list of this package's dependencies
 # Note that packages in this list require their own `package.yml` file
 # dependencies:
