@@ -18,6 +18,12 @@ class ApplicationLayout < ApplicationComponent
           "application",
           data_turbo_track: Rails.env.production? ? "reload" : "",
         )
+        javascript_include_tag(
+          "application",
+          data_turbo_track: Rails.env.production? ? "reload" : "",
+          type: "module",
+          defer: true,
+        )
         hotwire_livereload_tags if Rails.env.development?
       end
 
