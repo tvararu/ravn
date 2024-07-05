@@ -1,9 +1,6 @@
 import { Application, defaultSchema } from "@hotwired/stimulus";
 
-const schema = {
-  ...defaultSchema,
-  controllerAttribute: "data-module",
-};
+const schema = { ...defaultSchema, controllerAttribute: "data-module" };
 
 const application = Application.start(document.documentElement, schema);
 
