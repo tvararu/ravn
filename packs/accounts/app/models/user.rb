@@ -35,8 +35,4 @@ class User < ApplicationRecord
     team = Team.create!(name: "Personal")
     memberships.create!(team:, personal: true)
   end
-
-  def remember_me
-    super ? super : true
-  end
 end
