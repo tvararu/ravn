@@ -1,0 +1,7 @@
+$govuk-font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$govuk-global-styles: true;
+
+@import "govuk-frontend/dist/govuk/all";
+
+@import "globals";
