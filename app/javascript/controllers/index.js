@@ -28,6 +28,9 @@ application.register(
   GovukNotificationBannerController,
 );
 
+import GovukPasswordInputController from "./govuk_password_input_controller";
+application.register("govuk-password-input", GovukPasswordInputController);
+
 import GovukRadiosController from "./govuk_radios_controller";
 application.register("govuk-radios", GovukRadiosController);
 
