@@ -39,6 +39,14 @@ class ApplicationLayout < ApplicationComponent
 
         div(class: "govuk-width-container") do
           main(class: "govuk-main-wrapper", id: "main-content", role: "main") do
+            flash.each do |_, text|
+              render GovukComponent::NotificationBannerComponent.new(
+                title_text: "Important",
+                text:,
+                html_attributes: { "data-turbo-cache": "false" },
+              )
+            end
+
             yield
           end
         end
