@@ -6,7 +6,7 @@ class ApplicationLayout < ApplicationComponent
   def view_template(&block)
     doctype
 
-    html(lang: "en") do
+    html(lang: "en", class: "govuk-template") do
       head do
         title { t("app") }
         meta name: "viewport", content: "width=device-width,initial-scale=1"
@@ -27,13 +27,20 @@ class ApplicationLayout < ApplicationComponent
         hotwire_livereload_tags if Rails.env.development?
       end
 
-      body do
-        main(**classes(%w[container mx-auto p-5])) do
-          flash.each do |_, message|
-            p(class: "alert mb-5", data_turbo_cache: "false") { message }
-          end
+      body(class: "govuk-template__body") do
+        script do
+          unsafe_raw "document.body.className += ' js-enabled' +
+            ('noModule' in HTMLScriptElement.prototype
+              ? ' govuk-frontend-supported'
+              : '');"
+        end
 
-          yield
+        govuk_skip_link
+
+        div(class: "govuk-width-container") do
+          main(class: "govuk-main-wrapper", id: "main-content", role: "main") do
+            yield
+          end
         end
       end
     end
