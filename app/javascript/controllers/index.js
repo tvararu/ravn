@@ -36,6 +36,3 @@ application.register("govuk-skip-link", GovukSkipLinkController);
 
 import GovukTabsController from "./govuk_tabs_controller";
 application.register("govuk-tabs", GovukTabsController);
-
-import HelloController from "./hello_controller";
-application.register("hello", HelloController);
