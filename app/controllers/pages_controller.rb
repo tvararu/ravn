@@ -11,14 +11,13 @@ class PagesController < ApplicationController
     end
 
     def view_template
-      article(class: "prose") do
+      article do
         h1 { "Home" }
 
         if @current_user
           p { link_to "My profile", profile_path }
           p {
-            button_to "Logout", destroy_user_session_path, class: "btn",
-                                                           method: :delete
+            button_to "Logout", destroy_user_session_path, method: :delete
           }
         else
           p { link_to "Sign in", new_user_session_path }
