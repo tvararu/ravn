@@ -5,6 +5,8 @@
 
   <%= f.govuk_password_field :password, autocomplete: "current-password" %>
 
+  <%= f.hidden_field :remember_me, value: "true" %>
+
   <%= f.govuk_submit "Log in" %>
 <% end %>
 
