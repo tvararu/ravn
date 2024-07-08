@@ -35,15 +35,15 @@ class ApplicationLayout < ApplicationComponent
               : '');"
         end
 
-        govuk_skip_link
+        render GOVUK::SkipLink.new
+        render GOVUK::Header.new
 
         div(class: "govuk-width-container") do
           main(class: "govuk-main-wrapper", id: "main-content", role: "main") do
             flash.each do |_, text|
-              render GovukComponent::NotificationBannerComponent.new(
+              render GOVUK::NotificationBanner.new(
                 title_text: "Important",
                 text:,
-                html_attributes: { "data-turbo-cache": "false" },
               )
             end
 
