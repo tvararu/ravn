@@ -1,4 +1,14 @@
 module GOVUK
+  module Helpers
+    def govuk_button_to(body, url, options = {})
+      button_to body, url,
+                options.merge(
+                  class: "govuk-button",
+                  "data-module": "govuk-button",
+                )
+    end
+  end
+
   class Header < ApplicationComponent
     def view_template
       header(data: { module: "govuk-header" }, class: "govuk-header") do
