@@ -50,6 +50,8 @@ class ApplicationLayout < ApplicationComponent
             yield
           end
         end
+
+        render GOVUK::Footer.new
       end
     end
   end

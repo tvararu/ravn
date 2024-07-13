@@ -9,6 +9,24 @@ module GOVUK
     end
   end
 
+  class Footer < ApplicationComponent
+    def view_template
+      footer(class: "govuk-footer") do
+        div(class: "govuk-width-container") do
+          div(class: "govuk-footer__meta") do
+            div(class: "govuk-footer__meta-item
+                        govuk-footer__meta-item--grow") do
+              a(class: "govuk-footer__link",
+                href: "https://github.com/tvararu/ravn") do
+                "Source code"
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
   class Header < ApplicationComponent
     def view_template
       header(data: { module: "govuk-header" }, class: "govuk-header") do
