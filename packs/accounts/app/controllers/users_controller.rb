@@ -17,7 +17,9 @@ class UsersController < ApplicationController
       p { "Hello #{@current_user.email}" }
 
       h2 { "Teams" }
-      ul { @current_user.teams.each { |team| li { team.name } } }
+      ul(class: "govuk-list govuk-list--bullet") {
+        @current_user.teams.each { |team| li { team.name } }
+      }
     end
   end
 end
