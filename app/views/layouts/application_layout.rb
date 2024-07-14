@@ -9,7 +9,9 @@ class ApplicationLayout < ApplicationComponent
     html(lang: "en", class: "govuk-template") do
       head do
         title { t("app") }
-        meta name: "viewport", content: "width=device-width,initial-scale=1"
+        meta name: "viewport",
+          content: "width=device-width,initial-scale=1,viewport-fit=cover"
+        meta name: "theme-color", content: "#0b0c0c"
         meta name: "description", content: t("app")
 
         csp_meta_tag
@@ -39,7 +41,7 @@ class ApplicationLayout < ApplicationComponent
         render GOVUK::Header.new
 
         div(class: "govuk-width-container") do
-          main(class: "govuk-main-wrapper", id: "main-content", role: "main") do
+          main(class: "govuk-main-wrapper", id: "main-content") do
             flash.each do |_, text|
               render GOVUK::NotificationBanner.new(
                 title_text: "Important",
