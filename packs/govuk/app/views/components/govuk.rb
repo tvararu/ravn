@@ -76,4 +76,47 @@ module GOVUK
         data: { module: "govuk-skip-link" }) { "Skip to main content" }
     end
   end
+
+  class SummaryCard < ApplicationComponent
+    include Phlex::DeferredRender
+
+    def initialize
+      @rows = []
+    end
+
+    def view_template
+      div(class: "govuk-summary-card") do
+        div(class: "govuk-summary-card__title-wrapper") do
+          h3(class: "govuk-summary-card__title") { @title.call }
+        end
+        div(class: "govuk-summary-card__content") do
+          @body.call
+
+          dl(class: "govuk-summary-list") do
+            @rows.each do |key, value, action, href|
+              div(class: "govuk-summary-list__row") do
+                dt(class: "govuk-summary-list__key") { key }
+                dd(class: "govuk-summary-list__value") { value }
+                dd(class: "govuk-summary-list__actions") {
+                  a(class: "govuk-link", href:) { action }
+                } if action
+              end
+            end
+          end
+        end
+      end
+    end
+
+    def title(&block)
+      @title = block
+    end
+
+    def body(&block)
+      @body = block
+    end
+
+    def with_row(key, value, action = nil, href = nil)
+      @rows << [key, value, action, href]
+    end
+  end
 end
