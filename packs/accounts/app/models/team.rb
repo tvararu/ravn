@@ -12,4 +12,6 @@ class Team < ApplicationRecord
   has_many :users, through: :memberships
 
   encrypts :name
+
+  validates :name, presence: true, length: { minimum: 2, maximum: 200 }
 end
