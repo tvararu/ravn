@@ -1,0 +1,4 @@
+alices_personal_team_membership:
+  user: alice
+  team: alices_team
+  personal: true
