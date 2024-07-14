@@ -107,13 +107,9 @@ module GOVUK
       end
     end
 
-    def title(&block)
-      @title = block
-    end
+    def title(&block) = @title = block
 
-    def body(&block)
-      @body = block
-    end
+    def body(&block) = @body = block
 
     def with_row(key, value, action = nil, href = nil)
       @rows << [key, value, action, href]
