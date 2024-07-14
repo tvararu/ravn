@@ -42,11 +42,8 @@ class ApplicationLayout < ApplicationComponent
 
         div(class: "govuk-width-container") do
           main(class: "govuk-main-wrapper", id: "main-content") do
-            flash.each do |_, text|
-              render GOVUK::NotificationBanner.new(
-                title_text: "Important",
-                text:,
-              )
+            flash.each do |type, text|
+              render GOVUK::NotificationBanner.new(type:, text:)
             end
 
             yield

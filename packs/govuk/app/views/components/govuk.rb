@@ -43,23 +43,30 @@ module GOVUK
   end
 
   class NotificationBanner < ApplicationComponent
-    def initialize(title_text:, text:)
-      @title_text = title_text
+    def initialize(type:, text:)
+      @type = type
       @text = text
     end
 
     def view_template
-      div(class: "govuk-notification-banner",
+      div(**classes("govuk-notification-banner",
+                    success?: "govuk-notification-banner--success"),
           data: { module: "govuk-notification-banner" },
           role: "region",
           aria: { labelledby: "govuk-notification-banner-title" }) do
         div(class: "govuk-notification-banner__header") do
           h2(class: "govuk-notification-banner__title",
-             id: "govuk-notification-banner-title") { @title_text }
+             id: "govuk-notification-banner-title") { @type.humanize }
         end
-        div(class: "govuk-notification-banner__content") { @text }
+        div(class: "govuk-notification-banner__content") {
+          h3(class: "govuk-notification-banner__heading") { @text }
+        }
       end
     end
+
+    private
+
+    def success? = @type == "success"
   end
 
   class SkipLink < ApplicationComponent
