@@ -11,7 +11,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - run: brakeman
+      - run: bin/bundle exec brakeman
   prettier:
     name: Prettier
     runs-on: ubuntu-latest

@@ -12,7 +12,7 @@ echo "== Rubocop =="
 bin/rubocop --autocorrect-all
 
 echo "== Brakeman =="
-brakeman --quiet --no-summary --no-pager
+bin/bundle exec brakeman --quiet --no-summary --no-pager
 
 echo "== Tests =="
 bin/rails test:all test packs/*
