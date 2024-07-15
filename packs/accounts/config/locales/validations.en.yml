@@ -1,0 +1,24 @@
+en:
+  activerecord:
+    errors:
+      models:
+        team:
+          attributes:
+            name:
+              blank: Enter a name
+              too_short: Enter a name that is at least %{count} characters long
+              too_long: Enter a name that is less than %{count} characters long
+        user:
+          attributes:
+            email:
+              invalid: Enter an email address in the correct format, like
+                name@example.com
+              blank: Enter an email address
+              taken: An account already exists with this email address
+              not_found: Email address not found
+            password:
+              blank: Enter a password
+              too_short: Enter a longer password (minimum is %{count}
+                characters)
+            password_confirmation:
+              confirmation: Passwords do not match
