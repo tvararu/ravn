@@ -2,17 +2,17 @@
 
 set -e
 
-echo "--- Rufo ---"
+echo "== Rufo =="
 bin/bundle exec rufo .
 
-echo "--- Prettier ---"
+echo "== Prettier =="
 yarn prettier --write --list-different --ignore-unknown .
 
-echo "--- Rubocop ---"
+echo "== Rubocop =="
 bin/rubocop --autocorrect-all
 
-echo "--- Brakeman ---"
+echo "== Brakeman =="
 brakeman --quiet --no-summary --no-pager
 
-echo "--- Tests ---"
+echo "== Tests =="
 bin/rails test:all test packs/*

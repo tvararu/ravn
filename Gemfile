@@ -19,6 +19,7 @@ gem "stimulus-rails"
 gem "turbo-rails"
 
 group :development, :test do
+  gem "bullet"
   gem "debug", platforms: %i[ mri windows ]
   gem "dockerfile-rails"
   gem "rubocop-rails-omakase", require: false
