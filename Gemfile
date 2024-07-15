@@ -26,6 +26,7 @@ end
 
 group :development do
   gem "annotate"
+  gem "brakeman", require: false
   gem "hotwire-livereload"
   gem "rufo"
   gem "web-console"

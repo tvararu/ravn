@@ -2,7 +2,17 @@
 
 set -e
 
-bin/rubocop --autocorrect-all
+echo "--- Rufo ---"
 bin/bundle exec rufo .
+
+echo "--- Prettier ---"
 yarn prettier --write --list-different --ignore-unknown .
+
+echo "--- Rubocop ---"
+bin/rubocop --autocorrect-all
+
+echo "--- Brakeman ---"
+brakeman --quiet --no-summary --no-pager
+
+echo "--- Tests ---"
 bin/rails test:all test packs/*
