@@ -1,6 +1,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.govuk_error_summary %>
 
+  <% content_for :page_title, "Sign up" %>
   <h1>Sign up</h1>
 
   <%= f.govuk_email_field :email, autocomplete: "email" %>

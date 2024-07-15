@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
       form_with(model: @team, url: teams_path) do |f|
         f.govuk_error_summary
 
-        h1 { "Create a new team" }
+        main_heading "Create a new team"
 
         f.govuk_text_field :name
         f.govuk_submit "Create"

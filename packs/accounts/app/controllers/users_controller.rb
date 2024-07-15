@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
 
     def view_template
-      h1 { "Profile" }
+      main_heading "Profile"
       p { "Hello #{@current_user.email}" }
 
       h2 { "Teams" }

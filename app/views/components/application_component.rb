@@ -13,4 +13,11 @@ class ApplicationComponent < Phlex::HTML
       super
     end
   end
+
+  private
+
+  def main_heading(page_title)
+    helpers.content_for(:page_title) { page_title }
+    h1 { page_title }
+  end
 end

@@ -8,7 +8,7 @@ class ApplicationLayout < ApplicationComponent
 
     html(lang: "en", class: "govuk-template") do
       head do
-        title { t("app") }
+        title { helpers.page_title }
         meta name: "viewport",
           content: "width=device-width,initial-scale=1,viewport-fit=cover"
         meta name: "theme-color", content: "#0b0c0c"

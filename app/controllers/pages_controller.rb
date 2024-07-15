@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
     def view_template
       article do
-        h1 { "Home" }
+        main_heading "Home"
 
         if @current_user
           p { link_to "My profile", profile_path }
