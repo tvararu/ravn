@@ -29,6 +29,7 @@ group :development do
   gem "annotate"
   gem "brakeman", require: false
   gem "hotwire-livereload"
+  gem "minitest-macos-notification"
   gem "rufo"
   gem "web-console"
 end

@@ -4,6 +4,19 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 
+require "minitest/autorun"
+require "minitest/macos_notification"
+require "minitest/reporters"
+
+Minitest::Reporters.use!(
+  [
+    Minitest::Reporters::ProgressReporter.new,
+    Minitest::Reporters::MacosNotificationReporter.new(title: I18n.t("app")),
+  ],
+  ENV,
+  Minitest.backtrace_filter
+)
+
 module ActiveSupport
   class TestCase
     # Run tests in parallel with specified workers

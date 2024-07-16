@@ -80,6 +80,7 @@ GEM
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
+    ansi (1.5.0)
     ast (2.4.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
@@ -191,6 +192,16 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.24.1)
+    minitest-macos-notification (2.0.0)
+      minitest (~> 5.14)
+      minitest-reporters (~> 1.4)
+      os (~> 1.0)
+      terminal-notifier (~> 2.0)
+    minitest-reporters (1.7.1)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.14)
@@ -216,6 +227,7 @@ GEM
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    os (1.1.4)
     packs (0.0.44)
       bigdecimal
       code_ownership (>= 1.33.0)
@@ -364,6 +376,7 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.1)
     strscan (3.1.0)
+    terminal-notifier (2.0.0)
     thor (1.3.1)
     timeout (0.4.1)
     tty-color (0.6.0)
@@ -423,6 +436,7 @@ DEPENDENCIES
   govuk_design_system_formbuilder
   hotwire-livereload
   jsbundling-rails
+  minitest-macos-notification
   packs-rails
   pg
   phlex-rails
