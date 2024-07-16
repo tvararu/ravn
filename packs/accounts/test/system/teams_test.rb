@@ -7,9 +7,10 @@ class TeamsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Profile"
     assert_selector "h2", text: "Teams"
     assert_selector "h3", text: "Personal"
+    refute_selector "a", text: "Personal team settings"
   end
 
-  test "create a new team" do
+  test "create and delete a team" do
     sign_in users(:alice)
     visit profile_path
     click_on "Create a new team"
@@ -21,5 +22,15 @@ class TeamsTest < ApplicationSystemTestCase
     click_on "Create"
     assert_selector "h2", text: "Success"
     assert_selector "h3", text: "Work"
+
+    click_on "Work team settings"
+    assert_selector "h1", text: "Edit team details"
+
+    click_on "Delete this team"
+    assert_selector "h1", text: "Are you sure"
+
+    click_on "Delete"
+    assert_selector "h2", text: "Success"
+    refute_selector "h3", text: "Work"
   end
 end

@@ -25,10 +25,15 @@ class UsersController < ApplicationController
       @current_user.memberships.includes(:team).each do |membership|
         render GOVUK::SummaryCard.new do |card|
           card.title { membership.team.name }
-          card.body do
-            if membership.personal?
-              p { "This is your personal team. It can not be deleted." }
+          if membership.personal?
+            card.body do
+              p do
+                "This is your personal team. It cannot be renamed or deleted."
+              end
             end
+          else
+            card.with_action edit_team_path(membership.team), "Manage",
+                             "#{membership.team.name} team settings"
           end
         end
       end
