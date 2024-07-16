@@ -1,10 +1,13 @@
 module GOVUK
   module Helpers
     def govuk_button_to(body, url, options = {})
+      classes = ["govuk-button"]
+      classes << "govuk-button--warning" if options.delete(:warning)
       button_to body, url,
                 options.merge(
-                  class: "govuk-button",
+                  class: classes.join(" "),
                   "data-module": "govuk-button",
+                  "data-prevent-double-click": "true",
                 )
     end
   end

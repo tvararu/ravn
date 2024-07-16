@@ -88,9 +88,7 @@ class TeamsController < ApplicationController
 
       p { "Are you sure you want to delete this team?" }
 
-      button_to "Delete", team_path(@team),
-                method: :delete,
-                class: "govuk-button govuk-button--warning"
+      govuk_button_to "Delete", team_path(@team), method: :delete, warning: true
     end
   end
 end
