@@ -81,6 +81,7 @@ module GOVUK
     include Phlex::DeferredRender
 
     def initialize
+      @actions = []
       @rows = []
     end
 
@@ -88,18 +89,31 @@ module GOVUK
       div(class: "govuk-summary-card") do
         div(class: "govuk-summary-card__title-wrapper") do
           h3(class: "govuk-summary-card__title") { @title.call }
+          ul(class: "govuk-summary-card__actions") do
+            @actions.each do |href, text, hidden_text|
+              li(class: "govuk-summary-card__action") do
+                a(class: "govuk-link", href:) do
+                  plain text
+                  span(class: "govuk-visually-hidden") { hidden_text } if hidden_text
+                end
+              end
+            end
+          end
         end
         div(class: "govuk-summary-card__content") do
-          @body.call
+          @body.call if @body
 
           dl(class: "govuk-summary-list") do
-            @rows.each do |key, value, action, href|
+            @rows.each do |key, value, href, link_text, link_hidden_text|
               div(class: "govuk-summary-list__row") do
                 dt(class: "govuk-summary-list__key") { key }
                 dd(class: "govuk-summary-list__value") { value }
                 dd(class: "govuk-summary-list__actions") {
-                  a(class: "govuk-link", href:) { action }
-                } if action
+                  a(class: "govuk-link", href:) do
+                    plain link_text
+                    span(class: "govuk-visually-hidden") { link_hidden_text } if link_hidden_text
+                  end
+                } if href
               end
             end
           end
@@ -111,8 +125,12 @@ module GOVUK
 
     def body(&block) = @body = block
 
-    def with_row(key, value, action = nil, href = nil)
-      @rows << [key, value, action, href]
+    def with_action(href, text, hidden_text = nil)
+      @actions << [href, text, hidden_text]
+    end
+
+    def with_row(key, value, href = nil, link_text = nil, link_hidden_text = nil)
+      @rows << [key, value, href, link_text, link_hidden_text]
     end
   end
 end
