@@ -23,6 +23,14 @@ class TeamsController < ApplicationController
     end
   end
 
+  def update
+    if @team.update(team_params)
+      redirect_to profile_path, success: "Team updated"
+    else
+      render Edit.new(team: @team), status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @team.destroy!
     redirect_to profile_path, success: "Team deleted"
