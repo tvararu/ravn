@@ -2,17 +2,9 @@ class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team, except: %i[new create]
 
-  def new
-    render New.new(team: current_user.teams.new)
-  end
-
-  def edit
-    render Edit.new(team: @team)
-  end
-
-  def delete
-    render Delete.new(team: @team)
-  end
+  def new = render New.new(team: current_user.teams.new)
+  def edit = render Edit.new(team: @team)
+  def delete = render Delete.new(team: @team)
 
   def create
     team = current_user.teams.create(team_params)
