@@ -55,17 +55,29 @@ module GOVUK
   end
 
   class Header < ApplicationComponent
+    def initialize(options = {})
+      @class = options[:class]
+      @homepage_url = options[:homepage_url]
+      @product_name = options[:product_name] || I18n.t("app")
+    end
+
     def view_template
-      header(data: { module: "govuk-header" }, class: "govuk-header") do
+      header(data: { module: "govuk-header" }, class: classes) do
         div(class: "govuk-header__container govuk-width-container") do
           div(class: "govuk-header__logo") do
             a(class: "govuk-header__link govuk-header__link--homepage",
-              href: root_path) do
-              strong { "App" }
+              href: @homepage_url || root_path) do
+              strong { @product_name }
             end
           end
         end
       end
+    end
+
+    private
+
+    def classes
+      ["govuk-header", @class].compact.join(" ")
     end
   end
 

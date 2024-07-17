@@ -38,7 +38,7 @@ class ApplicationLayout < ApplicationComponent
         end
 
         render GOVUK::SkipLink.new
-        render GOVUK::Header.new
+        render GOVUK::Header.new(class: "app-header")
 
         div(class: "govuk-width-container") do
           plain content_for(:breadcrumbs)
