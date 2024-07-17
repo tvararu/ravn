@@ -16,6 +16,26 @@ module GOVUK
     end
   end
 
+  class Breadcrumbs < ApplicationComponent
+    def initialize(breadcrumbs = [])
+      @breadcrumbs = breadcrumbs
+    end
+
+    def view_template
+      nav(class: "govuk-breadcrumbs", aria: { label: "Breadcrumb" }) do
+        ol(class: "govuk-breadcrumbs__list") do
+          yield
+        end
+      end
+    end
+
+    def crumb(href, text)
+      li(class: "govuk-breadcrumbs__list-item") do
+        a(class: "govuk-breadcrumbs__link", href:) { text }
+      end
+    end
+  end
+
   class Footer < ApplicationComponent
     def view_template
       footer(class: "govuk-footer") do

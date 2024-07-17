@@ -41,6 +41,7 @@ class ApplicationLayout < ApplicationComponent
         render GOVUK::Header.new
 
         div(class: "govuk-width-container") do
+          plain content_for(:breadcrumbs)
           govuk_back_link(content_for(:back_link)) if content_for(:back_link)
 
           main(class: "govuk-main-wrapper", id: "main-content") do
