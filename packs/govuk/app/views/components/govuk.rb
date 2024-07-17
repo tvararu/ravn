@@ -128,7 +128,7 @@ module GOVUK
     def view_template
       div(**classes("govuk-notification-banner",
                     success?: "govuk-notification-banner--success"),
-          data: { module: "govuk-notification-banner" },
+          data: { module: "govuk-notification-banner", turbo_temporary: true },
           role: "region",
           aria: { labelledby: "govuk-notification-banner-title" }) do
         div(class: "govuk-notification-banner__header") do
