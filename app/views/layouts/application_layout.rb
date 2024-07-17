@@ -41,6 +41,8 @@ class ApplicationLayout < ApplicationComponent
         render GOVUK::Header.new
 
         div(class: "govuk-width-container") do
+          govuk_back_link(content_for(:back_link)) if content_for(:back_link)
+
           main(class: "govuk-main-wrapper", id: "main-content") do
             flash.each do |type, text|
               render GOVUK::NotificationBanner.new(type:, text:)

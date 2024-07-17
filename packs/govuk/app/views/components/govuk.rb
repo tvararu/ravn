@@ -10,6 +10,10 @@ module GOVUK
                   "data-prevent-double-click": "true",
                 )
     end
+
+    def govuk_back_link(href)
+      link_to "Back", href, class: "govuk-back-link"
+    end
   end
 
   class Footer < ApplicationComponent
