@@ -160,18 +160,21 @@ module GOVUK
     def initialize
       @actions = []
       @rows = []
+      @title_tag = :h2
     end
 
     def view_template
       div(class: "govuk-summary-card") do
         div(class: "govuk-summary-card__title-wrapper") do
-          h3(class: "govuk-summary-card__title") { @title.call }
+          send(@title_tag, class: "govuk-summary-card__title") { @title.call }
           ul(class: "govuk-summary-card__actions") do
             @actions.each do |href, text, hidden_text|
               li(class: "govuk-summary-card__action") do
                 a(class: "govuk-link", href:) do
                   plain text
-                  span(class: "govuk-visually-hidden") { hidden_text } if hidden_text
+                  if hidden_text
+                    span(class: "govuk-visually-hidden") { hidden_text }
+                  end
                 end
               end
             end
@@ -188,7 +191,9 @@ module GOVUK
                 dd(class: "govuk-summary-list__actions") {
                   a(class: "govuk-link", href:) do
                     plain link_text
-                    span(class: "govuk-visually-hidden") { link_hidden_text } if link_hidden_text
+                    if link_hidden_text
+                      span(class: "govuk-visually-hidden") { link_hidden_text }
+                    end
                   end
                 } if href
               end
@@ -198,7 +203,10 @@ module GOVUK
       end
     end
 
-    def title(&block) = @title = block
+    def title(tag: :h2, &block)
+      @title = block
+      @title_tag = tag
+    end
 
     def body(&block) = @body = block
 
@@ -206,7 +214,8 @@ module GOVUK
       @actions << [href, text, hidden_text]
     end
 
-    def with_row(key, value, href = nil, link_text = nil, link_hidden_text = nil)
+    def with_row(key, value, href = nil, link_text = nil,
+                             link_hidden_text = nil)
       @rows << [key, value, href, link_text, link_hidden_text]
     end
   end

@@ -19,11 +19,7 @@ class UsersController < ApplicationController
         end
       end
 
-      main_heading "Profile"
-
-      p { "Hello #{@current_user.email}" }
-
-      h2 { "Teams" }
+      main_heading "Teams"
 
       p {
         link_to "Create a new team", new_team_path
