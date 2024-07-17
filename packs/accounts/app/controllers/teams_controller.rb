@@ -46,6 +46,8 @@ class TeamsController < ApplicationController
     end
 
     def view_template
+      content_for :back_link, profile_path
+
       form_with(model: @team, url: teams_path) do |f|
         f.govuk_error_summary
 
@@ -63,6 +65,8 @@ class TeamsController < ApplicationController
     end
 
     def view_template
+      content_for :back_link, profile_path
+
       form_with(model: @team, url: team_path(@team)) do |f|
         f.govuk_error_summary
 
