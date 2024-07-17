@@ -34,7 +34,7 @@ class TeamsTest < ApplicationSystemTestCase
 
     click_on "Temporary team settings"
     click_on "Delete this team"
-    assert_selector "h1", text: "Are you sure"
+    assert_selector "h1", text: "Delete the Temporary team"
 
     click_on "Delete"
     assert_selector "h2", text: "Success"

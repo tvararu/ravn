@@ -80,7 +80,9 @@ class TeamsController < ApplicationController
     end
 
     def view_template
-      main_heading "Are you sure you want to delete the #{@team.name} team?"
+      content_for :back_link, profile_path
+
+      main_heading "Delete the #{@team.name} team"
 
       p { "This action is not reversible." }
 
