@@ -13,7 +13,14 @@ class UsersController < ApplicationController
     end
 
     def view_template
+      content_for :breadcrumbs do
+        render GOVUK::Breadcrumbs.new do |c|
+          c.crumb root_path, "Home"
+        end
+      end
+
       main_heading "Profile"
+
       p { "Hello #{@current_user.email}" }
 
       h2 { "Teams" }

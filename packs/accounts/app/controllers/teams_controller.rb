@@ -65,7 +65,12 @@ class TeamsController < ApplicationController
     end
 
     def view_template
-      content_for :back_link, profile_path
+      content_for :breadcrumbs do
+        render GOVUK::Breadcrumbs.new do |c|
+          c.crumb root_path, "Home"
+          c.crumb profile_path, "Profile"
+        end
+      end
 
       form_with(model: @team, url: team_path(@team)) do |f|
         f.govuk_error_summary
