@@ -80,7 +80,7 @@ class TeamsController < ApplicationController
     end
 
     def view_template
-      content_for :back_link, profile_path
+      content_for :back_link, edit_team_path(@team)
 
       main_heading "Delete the #{@team.name} team"
 
