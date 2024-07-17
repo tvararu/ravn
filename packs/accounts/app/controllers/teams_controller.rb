@@ -2,6 +2,8 @@ class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team, except: %i[new create]
 
+  use_layout TwoThirdsLayout
+
   def new = render New.new(team: current_user.teams.new)
   def edit = render Edit.new(team: @team)
   def delete = render Delete.new(team: @team)

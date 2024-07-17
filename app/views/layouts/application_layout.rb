@@ -3,7 +3,7 @@ class ApplicationLayout < ApplicationComponent
   include Phlex::Rails::Layout
   include Hotwire::Livereload::LivereloadTagsHelper if Rails.env.development?
 
-  def view_template(&block)
+  def view_template
     doctype
 
     html(lang: "en", class: "govuk-template") do
