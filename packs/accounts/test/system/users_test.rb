@@ -20,7 +20,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_selector "p", text: "Hello test@example.com"
 
     visit root_path
-    click_on "Logout"
+    click_on "Sign out"
     assert_selector ".govuk-notification-banner", text: "Signed out"
 
     visit new_user_session_path

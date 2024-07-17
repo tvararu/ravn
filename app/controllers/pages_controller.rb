@@ -13,14 +13,6 @@ class PagesController < ApplicationController
     def view_template
       article do
         main_heading "Home"
-
-        if @current_user
-          p {
-            govuk_button_to "Logout", destroy_user_session_path, method: :delete
-          }
-        else
-          p { link_to "Sign in", new_user_session_path }
-        end
       end
     end
   end
