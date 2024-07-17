@@ -7,4 +7,36 @@
     border-bottom-width: 0;
     margin-bottom: 0;
   }
+
+  @include govuk-media-query($from: desktop) {
+    .govuk-header__navigation-list {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.app-header__button-link {
+  background: none;
+  border: none;
+  color: govuk-colour("white");
+  cursor: pointer;
+  font-family: $govuk-font-family;
+  font-size: $govuk-root-font-size;
+  font-weight: bold;
+  line-height: 1.25;
+  padding: 0;
+
+  &:hover {
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: $govuk-link-hover-underline-thickness;
+    text-decoration-line: underline;
+    text-underline-offset: 0.1em;
+  }
+
+  &:focus {
+    background: govuk-colour("yellow");
+    color: govuk-colour("black");
+    outline: none;
+  }
 }

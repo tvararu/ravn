@@ -71,7 +71,7 @@ module GOVUK
       @product_name = options[:product_name] || I18n.t("app")
     end
 
-    def view_template
+    def view_template(&block)
       header(data: { module: "govuk-header" }, class: classes) do
         div(class: "govuk-header__container govuk-width-container") do
           div(class: "govuk-header__logo") do
@@ -80,7 +80,35 @@ module GOVUK
               strong { @product_name }
             end
           end
+          div(class: "govuk-header__content") do
+            block.call if block
+          end
         end
+      end
+    end
+
+    def menu
+      nav(aria: { label: "Menu" }, class: "govuk-header__navigation") do
+        button(type: "button",
+               class: "govuk-header__menu-button govuk-js-header-toggle",
+               aria: { controls: "navigation" }, hidden: true) { "Menu" }
+        ul(id: "navigation", class: "govuk-header__navigation-list") do
+          yield
+        end
+      end
+    end
+
+    def menu_link(text, href)
+      li(class: "govuk-header__navigation-item") do
+        a(class: "govuk-header__link", href:) { text }
+      end
+    end
+
+    def menu_button(text, href, options = {})
+      li(class: "govuk-header__navigation-item") do
+        button_to text, href, options.merge(class: "app-header__button-link",
+                                            "data-module": "govuk-button",
+                                            "data-prevent-double-click": "true")
       end
     end
 

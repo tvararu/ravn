@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
 
-  layout -> { ApplicationLayout }
+  layout -> { ApplicationLayout.new(current_user:) }
 
   add_flash_types :success
 
@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
                                  (except.present? && except.exclude?(method)) ||
                                  (only.blank? && except.blank?)
 
-             use_custom_layout ? custom_layout : ApplicationLayout
+             (use_custom_layout ? custom_layout : ApplicationLayout)
+               .new(current_user:)
            end
   end
 end

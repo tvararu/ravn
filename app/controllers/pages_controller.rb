@@ -15,7 +15,6 @@ class PagesController < ApplicationController
         main_heading "Home"
 
         if @current_user
-          p { link_to "My profile", profile_path }
           p {
             govuk_button_to "Logout", destroy_user_session_path, method: :delete
           }

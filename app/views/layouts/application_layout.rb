@@ -3,6 +3,10 @@ class ApplicationLayout < ApplicationComponent
   include Phlex::Rails::Layout
   include Hotwire::Livereload::LivereloadTagsHelper if Rails.env.development?
 
+  def initialize(current_user:)
+    @current_user = current_user
+  end
+
   def view_template
     doctype
 
@@ -38,7 +42,17 @@ class ApplicationLayout < ApplicationComponent
         end
 
         render GOVUK::SkipLink.new
-        render GOVUK::Header.new(class: "app-header")
+        render GOVUK::Header.new(class: "app-header") do |header|
+          header.menu do
+            if @current_user
+              header.menu_link "Profile", profile_path
+              header.menu_button "Sign out", destroy_user_session_path,
+                                 method: :delete
+            else
+              header.menu_link "Sign in", new_user_session_path
+            end
+          end
+        end
 
         div(class: "govuk-width-container") do
           plain content_for(:breadcrumbs)
