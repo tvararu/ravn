@@ -37,8 +37,12 @@ module GOVUK
   end
 
   class Footer < ApplicationComponent
+    def initialize(options = {})
+      @class = options[:class]
+    end
+
     def view_template
-      footer(class: "govuk-footer") do
+      footer(class: classes) do
         div(class: "govuk-width-container") do
           div(class: "govuk-footer__meta") do
             div(class: "govuk-footer__meta-item
@@ -51,6 +55,12 @@ module GOVUK
           end
         end
       end
+    end
+
+    private
+
+    def classes
+      ["govuk-footer", @class].compact.join(" ")
     end
   end
 

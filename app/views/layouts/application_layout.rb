@@ -53,7 +53,7 @@ class ApplicationLayout < ApplicationComponent
           end
         end
 
-        render GOVUK::Footer.new
+        render GOVUK::Footer.new(class: "app-footer")
       end
     end
   end
