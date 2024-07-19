@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   draw :accounts
 
-  mount Avo::Engine, at: Avo.configuration.root_path
+  authenticate :user, ->(user) { user.admin? } do
+    mount Avo::Engine, at: Avo.configuration.root_path
+  end
 
   root to: "pages#home"
   get "up", to: "rails/health#show", as: :rails_health_check
