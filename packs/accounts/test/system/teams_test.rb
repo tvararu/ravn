@@ -39,4 +39,18 @@ class TeamsTest < ApplicationSystemTestCase
     assert_selector "h2", text: "Success"
     refute_selector "h2", text: "Work"
   end
+
+  test "can't delete personal team" do
+    sign_in users(:alice)
+
+    visit profile_path
+    assert_selector "h2", text: "Personal"
+    refute_selector "a", text: "Personal team settings"
+
+    visit edit_team_path(teams(:alices_team))
+    assert_title "Exception"
+
+    visit delete_team_path(teams(:alices_team))
+    assert_title "Exception"
+  end
 end

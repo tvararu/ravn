@@ -5,8 +5,6 @@ class TeamsController < ApplicationController
   use_layout TwoThirdsLayout
 
   def new = render New.new(team: current_user.teams.new)
-  def edit = render Edit.new(team: @team)
-  def delete = render Delete.new(team: @team)
 
   def create
     team = current_user.teams.create(team_params)
@@ -17,6 +15,8 @@ class TeamsController < ApplicationController
     end
   end
 
+  def edit = render Edit.new(team: @team)
+
   def update
     if @team.update(team_params)
       redirect_to profile_path, success: "Team updated"
@@ -24,6 +24,8 @@ class TeamsController < ApplicationController
       render Edit.new(team: @team), status: :unprocessable_entity
     end
   end
+
+  def delete = render Delete.new(team: @team)
 
   def destroy
     @team.destroy!
@@ -33,7 +35,7 @@ class TeamsController < ApplicationController
   private
 
   def set_team
-    @team = current_user.teams.find(params[:id])
+    @team = current_user.teams.editable.find(params[:id])
   end
 
   def team_params
