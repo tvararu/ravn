@@ -4,6 +4,7 @@ ruby "3.3.3"
 
 gem "rails"
 
+gem "avo"
 gem "bootsnap", require: false
 gem "config"
 gem "cssbundling-rails"
