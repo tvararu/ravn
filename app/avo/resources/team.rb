@@ -1,5 +1,4 @@
-class Avo::Resources::User < Avo::BaseResource
-  self.title = :email
+class Avo::Resources::Team < Avo::BaseResource
   # self.includes = []
   # self.attachments = []
   # self.search = {
@@ -8,8 +7,8 @@ class Avo::Resources::User < Avo::BaseResource
 
   def fields
     field :id, as: :id
-    field :email, as: :text
+    field :name, as: :text
     field :memberships, as: :has_many
-    field :teams, as: :has_many, through: :memberships
+    field :users, as: :has_many, through: :memberships
   end
 end
