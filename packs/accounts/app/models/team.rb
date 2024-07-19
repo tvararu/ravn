@@ -17,4 +17,15 @@ class Team < ApplicationRecord
 
   scope :personal, -> { joins(:memberships).where(memberships: { personal: true }).distinct }
   scope :editable, -> { personal.invert_where }
+
+  before_destroy :prevent_destroying_personal_team, prepend: true
+
+  private
+
+  def prevent_destroying_personal_team
+    if memberships.exists?(personal: true)
+      errors.add(:base, :undestroyable)
+      throw :abort
+    end
+  end
 end

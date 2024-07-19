@@ -14,4 +14,11 @@ class TeamTest < ActiveSupport::TestCase
     refute_includes scope, teams(:alices_team)
     refute_includes scope, teams(:bobs_team)
   end
+
+  test "cannot destroy personal team" do
+    team = teams(:alices_team)
+    assert_raises(ActiveRecord::RecordNotDestroyed) do
+      team.destroy!
+    end
+  end
 end
