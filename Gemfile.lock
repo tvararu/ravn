@@ -280,7 +280,7 @@ GEM
       prism (>= 0.25.0)
       sorbet-runtime (>= 0.5.9914)
       zeitwerk (>= 2.6.1)
-    pagy (9.0.1)
+    pagy (8.6.3)
     parallel (1.25.1)
     parse_packwerk (0.26.0)
       bigdecimal
@@ -471,6 +471,7 @@ DEPENDENCIES
   jsbundling-rails
   minitest-macos-notification
   packs-rails
+  pagy (< 9)
   pg
   phlex-rails
   propshaft
