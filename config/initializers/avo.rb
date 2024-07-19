@@ -1,3 +1,5 @@
+require "net/http"
+
 # For more information regarding these settings check out our docs https://docs.avohq.io
 # The values disaplayed here are the default ones. Uncomment and change them to fit your needs.
 Avo.configure do |config|
