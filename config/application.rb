@@ -35,5 +35,14 @@ module Ravn
       config.autoload_paths << path
     end
     # :nocov:
+
+    # Override avo.autoload initializer to ensure packs/admin/app/avo/resources
+    # are successfully loaded.
+    config.before_configuration do
+      Avo::Engine.initializers.delete_if { _1.name == "avo.autoload" }
+      avo_directory = Rails.root.join("packs", "admin", "app", "avo").to_s
+      Rails.autoloaders.main.push_dir(avo_directory, namespace: Avo)
+      config.watchable_dirs[avo_directory] = [:rb]
+    end
   end
 end

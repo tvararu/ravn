@@ -8,12 +8,7 @@ Rails.application.routes.draw do
   end
 
   draw :accounts
-
-  authenticate :user, ->(user) { user.admin? } do
-    mount Avo::Engine, at: Avo.configuration.root_path
-    mount Flipper::UI.app(Flipper) => "/flipper"
-    mount MissionControl::Jobs::Engine, at: "/jobs"
-  end
+  draw :admin
 
   root to: "pages#home"
   get "up", to: "rails/health#show", as: :rails_health_check
