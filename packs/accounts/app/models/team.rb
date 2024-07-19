@@ -14,4 +14,7 @@ class Team < ApplicationRecord
   encrypts :name
 
   validates :name, presence: true, length: { minimum: 2, maximum: 200 }
+
+  scope :personal, -> { joins(:memberships).where(memberships: { personal: true }).distinct }
+  scope :editable, -> { personal.invert_where }
 end

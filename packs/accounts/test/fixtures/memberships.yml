@@ -2,3 +2,11 @@ alices_personal_team_membership:
   user: alice
   team: alices_team
   personal: true
+bobs_personal_team_membership:
+  user: bob
+  team: bobs_team
+  personal: true
+bobs_work_team_membership:
+  user: bob
+  team: bobs_work_team
+  personal: false

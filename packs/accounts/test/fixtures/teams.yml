@@ -1,2 +1,6 @@
 alices_team:
   name: Personal
+bobs_team:
+  name: Personal
+bobs_work_team:
+  name: Work
