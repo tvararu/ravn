@@ -20,6 +20,8 @@ class Team < ApplicationRecord
 
   before_destroy :prevent_destroying_personal_team, prepend: true
 
+  encrypts :name
+
   private
 
   def prevent_destroying_personal_team
