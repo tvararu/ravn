@@ -17,6 +17,7 @@ gem "phlex-rails"
 gem "propshaft"
 gem "pagy", "< 9"
 gem "puma"
+gem "solid_queue"
 gem "stimulus-rails"
 gem "turbo-rails"
 
