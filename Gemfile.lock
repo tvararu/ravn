@@ -192,6 +192,10 @@ GEM
       activesupport (>= 6.1.4.4)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
+    importmap-rails (2.0.1)
+      actionpack (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
     inline_svg (1.9.0)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
@@ -232,6 +236,11 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    mission_control-jobs (0.2.1)
+      importmap-rails
+      rails (~> 7.1)
+      stimulus-rails
+      turbo-rails
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.14)
@@ -482,6 +491,7 @@ DEPENDENCIES
   hotwire-livereload
   jsbundling-rails
   minitest-macos-notification
+  mission_control-jobs
   packs-rails
   pagy (< 9)
   pg
