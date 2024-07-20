@@ -174,6 +174,18 @@ GEM
     ffi (1.17.0-x86-linux-gnu)
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
+    flipper (1.3.0)
+      concurrent-ruby (< 2)
+    flipper-active_record (1.3.0)
+      activerecord (>= 4.2, < 8)
+      flipper (~> 1.3.0)
+    flipper-ui (1.3.0)
+      erubi (>= 1.0.0, < 2.0.0)
+      flipper (~> 1.3.0)
+      rack (>= 1.4, < 4)
+      rack-protection (>= 1.5.3, < 5.0.0)
+      rack-session (>= 1.0.2, < 3.0.0)
+      sanitize (< 7)
     fugit (1.11.0)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -323,6 +335,9 @@ GEM
     raabro (1.4.0)
     racc (1.8.0)
     rack (3.1.4)
+    rack-protection (4.0.0)
+      base64 (>= 0.1.0)
+      rack (>= 3.0.0, < 4)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -405,6 +420,9 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     rufo (0.18.0)
+    sanitize (6.1.1)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.12.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -487,6 +505,8 @@ DEPENDENCIES
   debug
   devise
   dockerfile-rails
+  flipper-active_record
+  flipper-ui
   govuk_design_system_formbuilder
   hotwire-livereload
   jsbundling-rails
