@@ -2,6 +2,7 @@
 
 class Users::PasswordsController < Devise::PasswordsController
   use_layout TwoThirdsLayout
+  self.responder = DevisePhlexResponder
 
   # GET /resource/password/new
   # def new
@@ -35,21 +36,6 @@ class Users::PasswordsController < Devise::PasswordsController
   # end
 
   private
-
-  self.responder = Class.new(Devise::Controllers::Responder) do
-    def to_html
-      case controller.action_name
-      when "new"
-        render New.new(user: resource)
-      when "create"
-        render New.new(user: resource), status: :unprocessable_entity
-      when "edit"
-        render Edit.new(user: resource)
-      else
-        super
-      end
-    end
-  end
 
   class New < ApplicationComponent
     def initialize(user:)

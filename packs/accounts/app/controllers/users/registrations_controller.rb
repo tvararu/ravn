@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   use_layout TwoThirdsLayout
+  self.responder = DevisePhlexResponder
 
   # def new
   #   super
@@ -57,18 +58,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   private
-
-  self.responder = Class.new(Devise::Controllers::Responder) do
-    def to_html
-      if controller.action_name == "new"
-        render New.new(user: resource)
-      elsif controller.action_name == "create"
-        render New.new(user: resource), status: :unprocessable_entity
-      else
-        super
-      end
-    end
-  end
 
   class New < ApplicationComponent
     def initialize(user:)
