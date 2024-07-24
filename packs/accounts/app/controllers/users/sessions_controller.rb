@@ -3,17 +3,14 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  use_layout TwoThirdsLayout
 
-  # POST /resource/sign_in
+  def new = super { return render New.new(user: resource) }
+
   # def create
   #   super
   # end
 
-  # DELETE /resource/sign_out
   # def destroy
   #   super
   # end
@@ -24,4 +21,28 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  private
+
+  class New < ApplicationComponent
+    def initialize(user:)
+      @user = user
+    end
+
+    def view_template
+      main_heading "Log in"
+
+      form_with(model: @user, url: user_session_path) do |f|
+        f.govuk_email_field :email, autocomplete: "email"
+
+        f.govuk_password_field :password, autocomplete: "current-password"
+
+        f.hidden_field :remember_me, value: "true"
+
+        f.govuk_submit "Log in"
+      end
+
+      render "devise/shared/links"
+    end
+  end
 end
