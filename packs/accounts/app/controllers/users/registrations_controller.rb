@@ -4,32 +4,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  # GET /resource/sign_up
+  use_layout TwoThirdsLayout
+
   # def new
   #   super
   # end
 
-  # POST /resource
   # def create
   #   super
   # end
 
-  # GET /resource/edit
   # def edit
   #   super
   # end
 
-  # PUT /resource
   # def update
   #   super
   # end
 
-  # DELETE /resource
   # def destroy
   #   super
   # end
 
-  # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to
   # cancel oauth signing in/up in the middle of the process,
@@ -59,4 +55,44 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  self.responder = Class.new(Devise::Controllers::Responder) do
+    def to_html
+      if controller.action_name == "new"
+        render New.new(user: resource)
+      elsif controller.action_name == "create"
+        render New.new(user: resource), status: :unprocessable_entity
+      else
+        super
+      end
+    end
+  end
+
+  class New < ApplicationComponent
+    def initialize(user:)
+      @user = user
+    end
+
+    def view_template
+      form_with(model: @user, url: user_registration_path) do |f|
+        f.govuk_error_summary
+
+        main_heading "Sign up"
+
+        f.govuk_email_field :email, autocomplete: "email"
+
+        f.govuk_password_field :password, autocomplete: "new-password"
+
+        f.govuk_password_field :password_confirmation,
+                               label: { text: "Confirm your password" },
+                               autocomplete: "new-password"
+
+        f.govuk_submit "Sign up"
+      end
+
+      render "devise/shared/links"
+    end
+  end
 end
