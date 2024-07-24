@@ -1,0 +1,18 @@
+<% content_for :page_title, t("devise.invitations.new.header") %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= form_for(resource, as: resource_name,
+                           url: user_invitation_path(resource_name),
+                           html: { method: :post }) do |f| %>
+      <%= f.govuk_error_summary %>
+      <h1><%= t "devise.invitations.new.header" %></h1>
+
+      <% resource.class.invite_key_fields.each do |field| %>
+        <%= f.govuk_text_field field %>
+      <% end %>
+
+      <%= f.govuk_submit t("devise.invitations.new.submit_button") %>
+    <% end %>
+  </div>
+</div>
