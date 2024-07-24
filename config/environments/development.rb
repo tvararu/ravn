@@ -83,7 +83,8 @@ Rails.application.configure do
   config.hotwire_livereload.reload_method = :turbo_stream
   ([Rails.root.join("app/controllers")] +
    Dir["packs/*/app/views"] +
-   Dir["packs/*/app/controllers"]).each do |path|
+   Dir["packs/*/app/controllers"] +
+   Dir["packs/*/config/locales"]).each do |path|
     config.hotwire_livereload.listen_paths << path
   end
 
