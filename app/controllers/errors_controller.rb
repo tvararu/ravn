@@ -7,6 +7,10 @@ class ErrorsController < ApplicationController
     render NotFound.new, status: :not_found
   end
 
+  def not_acceptable
+    render NotAcceptable.new, status: :not_acceptable
+  end
+
   def unprocessable_entity
     render UnprocessableEntity.new, status: :unprocessable_entity
   end
@@ -38,6 +42,16 @@ class ErrorsController < ApplicationController
                and you need to speak to someone about this problem, contact \
                the #{t("app")} team."
       end
+    end
+  end
+
+  class NotAcceptable < ApplicationComponent
+    def view_template
+      main_heading "Sorry, there’s a problem with the service"
+
+      p { "Try again later." }
+
+      p { "If you continue to see this error contact the #{t("app")} team." }
     end
   end
 
