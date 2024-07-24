@@ -4,7 +4,7 @@ class DevisePhlexResponder < Devise::Controllers::Responder
   def to_html
     if get?
       render_component(controller.action_name)
-    elsif controller.flash.alert.present?
+    elsif has_errors? || controller.flash.alert.present?
       render_component(default_action, status: :unprocessable_entity)
     else
       redirect_to resource_location

@@ -5,9 +5,10 @@ class Users::PasswordsController < Devise::PasswordsController
   self.responder = DevisePhlexResponder
 
   # GET /resource/password/new
-  # def new
-  #   super
-  # end
+  def new
+    super
+    respond_with resource
+  end
 
   # POST /resource/password
   # def create
@@ -15,9 +16,10 @@ class Users::PasswordsController < Devise::PasswordsController
   # end
 
   # GET /resource/password/edit?reset_password_token=abcdef
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+    respond_with resource
+  end
 
   # PUT /resource/password
   # def update
@@ -43,10 +45,10 @@ class Users::PasswordsController < Devise::PasswordsController
     end
 
     def view_template
-      main_heading "Forgot your password?"
-
-      form_with(model: @user, url: password_path(@user)) do |f|
+      form_with(model: @user, url: user_password_path) do |f|
         f.govuk_error_summary
+
+        main_heading "Forgot your password?"
 
         f.govuk_text_field :email, autocomplete: "email"
 
@@ -63,10 +65,10 @@ class Users::PasswordsController < Devise::PasswordsController
     end
 
     def view_template
-      main_heading "Change your password"
-
-      form_with(model: @user, url: password_path(@user), method: :put) do |f|
+      form_with(model: @user, url: user_password_path, method: :put) do |f|
         f.govuk_error_summary
+
+        main_heading "Change your password"
 
         f.hidden_field :reset_password_token
 

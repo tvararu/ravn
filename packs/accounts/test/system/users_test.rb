@@ -36,4 +36,36 @@ class UsersTest < ApplicationSystemTestCase
     assert_selector ".govuk-notification-banner", text: "Signed in"
     assert_selector "h1", text: "Home"
   end
+
+  test "reset password" do
+    user = users(:alice)
+
+    visit new_user_password_path
+    assert_selector "h1", text: "Forgot your password?"
+
+    fill_in "user[email]", with: user.email
+    click_on "Submit"
+    assert_selector ".govuk-notification-banner", text: "You will receive"
+
+    reset_email = ActionMailer::Base.deliveries.last
+    assert_equal user.email, reset_email.to[0]
+    assert_match(/Reset password instructions/i, reset_email.subject)
+
+    reset_token = reset_email.body.to_s.match(/reset_password_token=([^"]+)/)[1]
+
+    visit edit_user_password_path(reset_password_token: reset_token)
+    assert_selector "h1", text: "Change your password"
+
+    fill_in "user[password]", with: "newpassword"
+    fill_in "user[password_confirmation]", with: "newpassword"
+    click_on "Update"
+    assert_selector ".govuk-notification-banner", text: "Your password has been"
+
+    click_on "Sign out"
+    visit new_user_session_path
+    fill_in "user[email]", with: user.email
+    fill_in "user[password]", with: "newpassword"
+    click_on "Log in"
+    assert_selector ".govuk-notification-banner", text: "Signed in"
+  end
 end
