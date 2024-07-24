@@ -5,7 +5,9 @@ class Users::SessionsController < Devise::SessionsController
 
   use_layout TwoThirdsLayout
 
-  def new = super { return render New.new(user: resource) }
+  # def new
+  #   super
+  # end
 
   # def create
   #   super
@@ -23,6 +25,18 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   private
+
+  self.responder = Class.new(Devise::Controllers::Responder) do
+    def to_html
+      if controller.action_name == "new"
+        render New.new(user: resource)
+      elsif controller.action_name == "create"
+        render New.new(user: resource), status: :unprocessable_entity
+      else
+        super
+      end
+    end
+  end
 
   class New < ApplicationComponent
     def initialize(user:)
