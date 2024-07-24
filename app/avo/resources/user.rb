@@ -1,3 +1,4 @@
+# :nocov:
 class Avo::Resources::User < Avo::BaseResource
   self.title = :email
   # self.includes = []

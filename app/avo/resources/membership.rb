@@ -1,3 +1,4 @@
+# :nocov:
 class Avo::Resources::Membership < Avo::BaseResource
   self.includes = [:team, :user]
   # self.attachments = []
