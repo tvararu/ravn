@@ -20,8 +20,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :validatable, :invitable
   devise :pwned_password unless Rails.env.test?
 
   has_many :memberships, dependent: :destroy
