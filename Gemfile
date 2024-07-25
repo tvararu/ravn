@@ -9,6 +9,7 @@ gem "bootsnap", require: false
 gem "config"
 gem "cssbundling-rails"
 gem "devise"
+gem "devise-pwned_password"
 gem "flipper-active_record"
 gem "flipper-ui"
 gem "govuk_design_system_formbuilder"

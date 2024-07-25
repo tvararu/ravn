@@ -156,6 +156,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-pwned_password (0.1.12)
+      devise (~> 4)
+      pwned (~> 2.4)
     docile (1.4.0)
     dockerfile-rails (1.6.17)
       rails (>= 3.0.0)
@@ -337,6 +340,7 @@ GEM
     public_suffix (6.0.1)
     puma (6.4.2)
       nio4r (~> 2.0)
+    pwned (2.4.1)
     raabro (1.4.0)
     racc (1.8.0)
     rack (3.1.7)
@@ -516,6 +520,7 @@ DEPENDENCIES
   cuprite
   debug
   devise
+  devise-pwned_password
   dockerfile-rails
   flipper-active_record
   flipper-ui
@@ -525,7 +530,6 @@ DEPENDENCIES
   minitest-macos-notification
   mission_control-jobs
   packs-rails
-  pagy (< 9)
   pg
   phlex-rails
   postmark-rails
