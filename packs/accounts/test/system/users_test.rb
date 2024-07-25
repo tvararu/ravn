@@ -26,10 +26,14 @@ class UsersTest < ApplicationSystemTestCase
     visit new_user_session_path
     assert_selector "h1", text: "Log in"
 
+    click_on "Log in"
+    assert_selector ".govuk-notification-banner", text: "Invalid"
+
     fill_in "user[email]", with: "test@example.com"
     fill_in "user[password]", with: "password"
     click_on "Log in"
 
     assert_selector ".govuk-notification-banner", text: "Signed in"
+    assert_selector "h1", text: "Home"
   end
 end
