@@ -21,9 +21,7 @@ class Users::InvitationsController < Devise::InvitationsController
     end
 
     def view_template
-      form_with(model: @user, as: :user,
-                url: user_invitation_path(:user),
-                method: :post) do |f|
+      form_with(model: @user, url: user_invitation_path) do |f|
         f.govuk_error_summary
 
         main_heading t("devise.invitations.new.header")
@@ -43,9 +41,7 @@ class Users::InvitationsController < Devise::InvitationsController
     end
 
     def template
-      form_with(model: @user, as: :user,
-                url: user_invitation_path(:user),
-                method: :put) do |f|
+      form_with(model: @user, url: user_invitation_path, method: :put) do |f|
         f.govuk_error_summary
 
         main_heading t("devise.invitations.edit.header")
