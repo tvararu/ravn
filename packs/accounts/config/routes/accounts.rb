@@ -5,6 +5,7 @@ devise_for :users, controllers: {
                      passwords: "users/passwords",
                      registrations: "users/registrations",
                      sessions: "users/sessions",
+                     invitations: "users/invitations",
                    }
 
 get "profile", to: "users#show"
