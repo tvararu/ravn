@@ -2,11 +2,6 @@ class Users::InvitationsController < Devise::InvitationsController
   use_layout TwoThirdsLayout
   self.responder = DevisePhlexResponder
 
-  def new
-    self.resource = resource_class.new
-    respond_with resource
-  end
-
   def edit
     set_minimum_password_length
     resource.invitation_token = params[:invitation_token]
@@ -14,26 +9,6 @@ class Users::InvitationsController < Devise::InvitationsController
   end
 
   private
-
-  class New < ApplicationComponent
-    def initialize(user:)
-      @user = user
-    end
-
-    def view_template
-      form_with(model: @user, url: user_invitation_path) do |f|
-        f.govuk_error_summary
-
-        main_heading t("devise.invitations.new.header")
-
-        @user.class.invite_key_fields.each do |field|
-          f.govuk_text_field field
-        end
-
-        f.govuk_submit t("devise.invitations.new.submit_button")
-      end
-    end
-  end
 
   class Edit < ApplicationComponent
     def initialize(user:)
