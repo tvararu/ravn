@@ -15,7 +15,7 @@ class Users::InvitationsController < Devise::InvitationsController
       @user = user
     end
 
-    def template
+    def view_template
       form_with(model: @user, url: user_invitation_path, method: :put) do |f|
         f.govuk_error_summary
 
