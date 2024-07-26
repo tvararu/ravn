@@ -190,10 +190,10 @@ module GOVUK
           @body.call if @body
 
           dl(class: "govuk-summary-list") do
-            @rows.each do |key, value, href, link_text, link_hidden_text|
+            @rows.each do |key, href, link_text, link_hidden_text, block|
               div(class: "govuk-summary-list__row") do
                 dt(class: "govuk-summary-list__key") { key }
-                dd(class: "govuk-summary-list__value") { value }
+                dd(class: "govuk-summary-list__value", &block)
                 dd(class: "govuk-summary-list__actions") {
                   a(class: "govuk-link", href:) do
                     plain link_text
@@ -220,9 +220,9 @@ module GOVUK
       @actions << [href, text, hidden_text]
     end
 
-    def with_row(key, value, href = nil, link_text = nil,
-                             link_hidden_text = nil)
-      @rows << [key, value, href, link_text, link_hidden_text]
+    def with_row(key, href: nil, link_text: nil, link_hidden_text: nil,
+                 &block)
+      @rows << [key, href, link_text, link_hidden_text, block]
     end
   end
 end
