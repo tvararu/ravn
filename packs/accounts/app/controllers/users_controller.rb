@@ -2,14 +2,15 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    render Show.new(current_user:)
+    memberships = current_user.memberships.eager_load(team: :users)
+    render Show.new(memberships:)
   end
 
   private
 
   class Show < ApplicationComponent
-    def initialize(current_user:)
-      @current_user = current_user
+    def initialize(memberships:)
+      @memberships = memberships
     end
 
     def view_template
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
         link_to "Create a new team", new_team_path
       }
 
-      @current_user.memberships.includes(:team).each do |membership|
+      @memberships.each do |membership|
         render GOVUK::SummaryCard.new do |card|
           card.title { membership.team.name }
           if membership.personal?
@@ -37,6 +38,16 @@ class UsersController < ApplicationController
           else
             card.with_action edit_team_path(membership.team), "Manage",
                              "#{membership.team.name} team settings"
+          end
+          card.with_row "Members",
+                        href: new_team_invitation_path(membership.team),
+                        link_text: "Invite members",
+                        link_hidden_text: "to #{membership.team.name} team" do
+            govuk_list do
+              membership.team.users.each do |user|
+                li { user.email }
+              end
+            end
           end
         end
       end
