@@ -14,6 +14,12 @@ module GOVUK
     def govuk_back_link(href)
       link_to "Back", href, class: "govuk-back-link"
     end
+
+    def govuk_list(options = {})
+      ul(class: "govuk-list govuk-list--bullet") do
+        yield
+      end
+    end
   end
 
   class Breadcrumbs < ApplicationComponent
