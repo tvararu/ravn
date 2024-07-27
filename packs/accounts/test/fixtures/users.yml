@@ -1,4 +1,6 @@
 alice:
   email: alice@example.com
+  confirmed_at: <%= 2.days.ago %>
 bob:
   email: bob@example.com
+  confirmed_at: <%= 2.days.ago %>
