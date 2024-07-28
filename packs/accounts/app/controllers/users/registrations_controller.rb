@@ -15,9 +15,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # def edit
-  #   super
-  # end
+  def edit
+    respond_with resource
+  end
 
   # def update
   #   super
@@ -82,6 +82,36 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
 
       render "devise/shared/links"
+    end
+  end
+
+  class Edit < ApplicationComponent
+    def initialize(user:)
+      @user = user
+    end
+
+    def view_template
+      content_for :back_link, profile_path
+
+      form_with(model: @user, url: user_registration_path) do |f|
+        f.govuk_error_summary
+
+        main_heading "Change your password"
+
+        f.govuk_password_field :current_password,
+                               label: { text: "Current password" },
+                               autocomplete: "current-password"
+
+        f.govuk_password_field :password,
+                               label: { text: "New password" },
+                               autocomplete: "new-password"
+
+        f.govuk_password_field :password_confirmation,
+                               label: { text: "Confirm your password" },
+                               autocomplete: "new-password"
+
+        f.govuk_submit "Update"
+      end
     end
   end
 end

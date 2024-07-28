@@ -44,6 +44,22 @@ class UsersTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Home"
   end
 
+  test "change password" do
+    user = users(:alice)
+    user.update! password: "old_password"
+
+    sign_in user
+    visit profile_path
+    click_on "Change your password"
+    assert_selector "h1", text: "Change your password"
+
+    fill_in "user[current_password]", with: "old_password"
+    fill_in "user[password]", with: "password"
+    fill_in "user[password_confirmation]", with: "password"
+    click_on "Update"
+    assert_selector ".govuk-notification-banner", text: "updated successfully"
+  end
+
   test "reset password" do
     user = users(:alice)
 
