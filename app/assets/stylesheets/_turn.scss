@@ -1,0 +1,51 @@
+@import "@domchristie/turn/dist/turn";
+
+.turn-view-transitions.turn-transition [data-turn-enter],
+.turn-view-transitions.turn-before-transition [data-turn-enter] {
+  opacity: 0;
+}
+
+[data-turn-exit],
+[data-turn-enter] {
+  animation-timing-function: cubic-bezier(0.65, 0.05, 0.35, 1);
+  animation-fill-mode: forwards;
+}
+
+html.turn-advance.turn-exit [data-turn-exit] {
+  animation-name: fade-out-left;
+  animation-duration: 0.2s;
+}
+
+html.turn-advance.turn-enter [data-turn-enter] {
+  animation-name: fade-in-left;
+  animation-duration: 0.3s;
+}
+
+html.turn-before-exit [data-turn-exit],
+html.turn-exit [data-turn-exit] {
+  will-change: transform, opacity;
+}
+
+@keyframes fade-out-left {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(-4rem, 0, 0);
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translate3d(4rem, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

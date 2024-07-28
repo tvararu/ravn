@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@domchristie/turn@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@domchristie/turn/-/turn-3.1.1.tgz#404536f25878eda1ac74e90285441a3fd7d428f3"
+  integrity sha512-hdS58VV28fhOCQbVu/tMKv5UIv8wDl12fiS2mmuD1sNhyMfeA99TqxsrM2IzvoXh3Izi/ry0QvfgQjwDiAOzow==
+
 "@esbuild/aix-ppc64@0.23.0":
   version "0.23.0"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.23.0.tgz#145b74d5e4a5223489cabdc238d8dad902df5259"
@@ -233,6 +238,11 @@ govuk-frontend@^5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-5.4.0.tgz#8f2e0b55ef7c7552a1efe68c7b40ff1b4a393e72"
   integrity sha512-F3YwQYrYQqIPfNxsoph6O78Ey1unCB6cy6omx8KeWY9G504lWZFBSIaiUCma1jNLw9bOUU7Ui+tXG09jjqy0Mw==
+
+gsap@^3.12.5:
+  version "3.12.5"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.12.5.tgz#136c02dad4c673b441bdb1ca00104bfcb4eae7f4"
+  integrity sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==
 
 immutable@^4.0.0:
   version "4.3.6"

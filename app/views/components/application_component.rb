@@ -19,6 +19,6 @@ class ApplicationComponent < Phlex::HTML
 
   def main_heading(page_title)
     content_for(:page_title) { page_title }
-    h1 { page_title }
+    h1(data: { turn_enter: true, turn_exit: true }) { page_title }
   end
 end

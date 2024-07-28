@@ -54,7 +54,8 @@ class ApplicationLayout < ApplicationComponent
           end
         end
 
-        div(class: "govuk-width-container") do
+        div(class: "govuk-width-container",
+            data: { turn_enter: true, turn_exit: true }) do
           plain content_for(:breadcrumbs)
           govuk_back_link(content_for(:back_link)) if content_for(:back_link)
 
