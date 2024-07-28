@@ -5,8 +5,9 @@ class TeamsTest < ApplicationSystemTestCase
     sign_in users(:alice)
 
     visit profile_path
-    assert_selector "h1", text: "Teams"
-    assert_selector "h2", text: "Personal"
+    assert_selector "h1", text: "Profile"
+    assert_selector "h2", text: "Teams"
+    assert_selector "h3", text: "Personal"
     refute_selector "a", text: "Personal team settings"
 
     click_on "Create a new team"
@@ -17,7 +18,7 @@ class TeamsTest < ApplicationSystemTestCase
     fill_in "Name", with: "Work"
     click_on "Create"
     assert_selector "h2", text: "Success"
-    assert_selector "h2", text: "Work"
+    assert_selector "h3", text: "Work"
 
     click_on "Work team settings"
     assert_selector "h1", text: "Edit team details"
@@ -29,7 +30,7 @@ class TeamsTest < ApplicationSystemTestCase
     fill_in "Name", with: "Temporary"
     click_on "Update"
     assert_selector "h2", text: "Success"
-    assert_selector "h2", text: "Temporary"
+    assert_selector "h3", text: "Temporary"
 
     click_on "Temporary team settings"
     click_on "Delete this team"
@@ -37,14 +38,14 @@ class TeamsTest < ApplicationSystemTestCase
 
     click_on "Delete"
     assert_selector "h2", text: "Success"
-    refute_selector "h2", text: "Work"
+    refute_selector "h3", text: "Work"
   end
 
   test "can't delete personal team" do
     sign_in users(:alice)
 
     visit profile_path
-    assert_selector "h2", text: "Personal"
+    assert_selector "h3", text: "Personal"
     refute_selector "a", text: "Personal team settings"
 
     visit edit_team_path(teams(:alices_team))

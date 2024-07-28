@@ -20,7 +20,9 @@ class UsersController < ApplicationController
         end
       end
 
-      main_heading "Teams"
+      main_heading "Profile"
+
+      h2 { "Teams" }
 
       p {
         link_to "Create a new team", new_team_path
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
 
       @memberships.each do |membership|
         render GOVUK::SummaryCard.new do |card|
-          card.title { membership.team.name }
+          card.title(tag: :h3) { membership.team.name }
           if membership.personal?
             card.body do
               p do

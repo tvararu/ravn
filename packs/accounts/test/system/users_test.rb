@@ -24,7 +24,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_selector ".govuk-notification-banner", text: "successfully confirmed"
 
     visit profile_path
-    assert_selector "h1", text: "Teams"
+    assert_selector "h1", text: "Profile"
 
     visit root_path
     click_on "Sign out"
