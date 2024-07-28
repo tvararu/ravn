@@ -16,6 +16,13 @@ class UsersTest < ApplicationSystemTestCase
     click_on "Sign up"
     assert_selector ".govuk-notification-banner", text: "You have signed up"
 
+    email = ActionMailer::Base.deliveries.last
+    assert_match(/Confirmation instructions/i, email.subject)
+    confirmation_token = email.body.to_s.match(/confirmation_token=([^"]+)/)[1]
+
+    visit user_confirmation_path(confirmation_token: confirmation_token)
+    assert_selector ".govuk-notification-banner", text: "successfully confirmed"
+
     visit profile_path
     assert_selector "h1", text: "Teams"
 
