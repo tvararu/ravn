@@ -1,11 +1,11 @@
 devise_for :users, controllers: {
-                     # confirmations: "users/confirmations",
                      # omniauth_callbacks: "users/omniauth_callbacks",
                      # unlocks: "users/unlocks",
+                     confirmations: "users/confirmations",
+                     invitations: "users/invitations",
                      passwords: "users/passwords",
                      registrations: "users/registrations",
                      sessions: "users/sessions",
-                     invitations: "users/invitations",
                    }
 
 get "profile", to: "users#show"

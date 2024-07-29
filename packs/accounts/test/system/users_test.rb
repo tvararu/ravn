@@ -6,7 +6,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_selector ".govuk-notification-banner", text: "You need to sign in"
   end
 
-  test "sign up, profile, sign out, sign in" do
+  test "sign up, confirm account, profile, sign out, sign in" do
     visit new_user_registration_path
     assert_selector "h1", text: "Sign up"
 
@@ -18,10 +18,6 @@ class UsersTest < ApplicationSystemTestCase
 
     email = ActionMailer::Base.deliveries.last
     assert_match(/Confirmation instructions/i, email.subject)
-    confirmation_token = email.body.to_s.match(/confirmation_token=([^"]+)/)[1]
-
-    visit user_confirmation_path(confirmation_token: confirmation_token)
-    assert_selector ".govuk-notification-banner", text: "successfully confirmed"
 
     visit profile_path
     assert_selector "h1", text: "Profile"
@@ -29,6 +25,18 @@ class UsersTest < ApplicationSystemTestCase
     visit root_path
     click_on "Sign out"
     assert_selector ".govuk-notification-banner", text: "Signed out"
+
+    visit new_user_confirmation_path
+    fill_in "user[email]", with: "test@example.com"
+    click_on "Submit"
+    assert_selector ".govuk-notification-banner", text: "You will receive"
+
+    email = ActionMailer::Base.deliveries.last
+    assert_match(/Confirmation instructions/i, email.subject)
+    confirmation_token = email.body.to_s.match(/confirmation_token=([^"]+)/)[1]
+
+    visit user_confirmation_path(confirmation_token: confirmation_token)
+    assert_selector ".govuk-notification-banner", text: "successfully confirmed"
 
     visit new_user_session_path
     assert_selector "h1", text: "Log in"

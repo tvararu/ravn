@@ -11,6 +11,7 @@ en:
         user:
           attributes:
             email:
+              already_confirmed: This email address has already been confirmed
               invalid: Enter an email address in the correct format, like
                 name@example.com
               blank: Enter an email address
