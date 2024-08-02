@@ -13,6 +13,8 @@ class PagesController < ApplicationController
     def view_template
       article do
         main_heading "Home"
+
+        p { "Nothing to see here. This is still being built." }
       end
     end
   end
