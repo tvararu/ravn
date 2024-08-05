@@ -140,7 +140,7 @@ GEM
     connection_pool (2.4.1)
     constant_resolver (0.2.0)
     crass (1.0.6)
-    cssbundling-rails (1.4.0)
+    cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
     cuprite (0.15.1)
       capybara (~> 3.0)
