@@ -140,7 +140,7 @@ GEM
     connection_pool (2.4.1)
     constant_resolver (0.2.0)
     crass (1.0.6)
-    cssbundling-rails (1.4.0)
+    cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
     cuprite (0.15.1)
       capybara (~> 3.0)
@@ -345,7 +345,7 @@ GEM
       nio4r (~> 2.0)
     pwned (2.4.1)
     raabro (1.4.0)
-    racc (1.8.0)
+    racc (1.8.1)
     rack (3.1.7)
     rack-protection (4.0.0)
       base64 (>= 0.1.0)
@@ -501,7 +501,7 @@ GEM
     wisper (2.0.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.16)
+    zeitwerk (2.6.17)
 
 PLATFORMS
   aarch64-linux
