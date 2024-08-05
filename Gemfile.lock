@@ -85,7 +85,7 @@ GEM
       rake (>= 10.4, < 14.0)
     ansi (1.5.0)
     ast (2.4.2)
-    avo (3.10.9)
+    avo (3.10.10)
       actionview (>= 6.1)
       active_link_to
       activerecord (>= 6.1)
@@ -162,7 +162,7 @@ GEM
     devise_invitable (2.0.9)
       actionmailer (>= 5.0)
       devise (>= 4.6)
-    docile (1.4.0)
+    docile (1.4.1)
     dockerfile-rails (1.6.17)
       rails (>= 3.0.0)
     drb (2.2.1)
@@ -312,7 +312,7 @@ GEM
       prism (>= 0.25.0)
       sorbet-runtime (>= 0.5.9914)
       zeitwerk (>= 2.6.1)
-    pagy (8.6.3)
+    pagy (9.0.5)
     parallel (1.25.1)
     parse_packwerk (0.26.0)
       bigdecimal
@@ -345,7 +345,7 @@ GEM
       nio4r (~> 2.0)
     pwned (2.4.1)
     raabro (1.4.0)
-    racc (1.8.0)
+    racc (1.8.1)
     rack (3.1.7)
     rack-protection (4.0.0)
       base64 (>= 0.1.0)
@@ -501,7 +501,7 @@ GEM
     wisper (2.0.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.16)
+    zeitwerk (2.6.17)
 
 PLATFORMS
   aarch64-linux
