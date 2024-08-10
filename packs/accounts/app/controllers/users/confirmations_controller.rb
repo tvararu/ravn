@@ -63,7 +63,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     end
 
     def view_template
-      main_heading "Your account has been confirmed"
+      main_heading "Your email address has been confirmed"
     end
   end
 end
