@@ -16,7 +16,9 @@ module GOVUK
     end
 
     def govuk_list(options = {})
-      ul(class: "govuk-list govuk-list--bullet") do
+      classes = ["govuk-list"]
+      classes << "govuk-list--bullet" if options[:bullet]
+      ul(class: classes.join(" ")) do
         yield
       end
     end
