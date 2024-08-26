@@ -251,7 +251,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    mission_control-jobs (0.3.0)
+    mission_control-jobs (0.3.1)
       importmap-rails
       irb (~> 1.13)
       rails (>= 7.1)
