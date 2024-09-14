@@ -17,13 +17,13 @@ class TeamsInvitationsTest < ApplicationSystemTestCase
     click_on "Invite"
     assert_text "Invitation sent to newuser@example.com"
     assert_selector "li", text: "newuser@example.com"
-    sign_out alice
 
+    sign_out alice
     email = ActionMailer::Base.deliveries.last
     assert_match "newuser@example.com", email.to.first
 
     invitation_token = email.body.parts.first.to_s
-      .match(/invitation_token=(\w+)/)[1]
+      .match(/invitation_token=([\w-]+)/)[1]
 
     visit accept_user_invitation_path(invitation_token:)
     assert_selector "h1", text: "Set your password"
