@@ -40,9 +40,14 @@ module Ravn
     # are successfully loaded.
     config.before_configuration do
       Avo::Engine.initializers.delete_if { _1.name == "avo.autoload" }
+
       avo_directory = Rails.root.join("packs", "admin", "app", "avo").to_s
-      Rails.autoloaders.main.push_dir(avo_directory, namespace: Avo)
-      config.watchable_dirs[avo_directory] = [:rb]
+      engine_avo_directory = Avo::Engine.root.join("app", "avo").to_s
+
+      [avo_directory, engine_avo_directory].each do |dir|
+        Rails.autoloaders.main.push_dir(dir, namespace: Avo)
+        config.watchable_dirs[dir] = [:rb]
+      end
     end
   end
 end
