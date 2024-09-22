@@ -35,9 +35,9 @@
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable, :trackable and :omniauthable
+  # :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-         :validatable, :invitable, :confirmable
+         :validatable, :invitable, :confirmable, :omniauthable
   devise :pwned_password unless Rails.env.test?
 
   has_many :memberships, dependent: :destroy
@@ -46,6 +46,14 @@ class User < ApplicationRecord
   encrypts :email, deterministic: true, downcase: true
 
   after_create :create_personal_team
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.skip_confirmation!
+    end
+  end
 
   private
 
