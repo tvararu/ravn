@@ -23,7 +23,10 @@
     <% resource_class.omniauth_providers.each do |provider| %>
       <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}",
                     omniauth_authorize_path(resource_name, provider),
-                    data: { turbo: false } %><br />
+                    class: "govuk-button govuk-button--secondary",
+                    data: { module: "govuk-button",
+                            prevent_double_click: "true",
+                            turbo: false } %>
     <% end %>
   <% end %>
 </p>
