@@ -1,8 +1,8 @@
 devise_for :users, controllers: {
-                     # omniauth_callbacks: "users/omniauth_callbacks",
                      # unlocks: "users/unlocks",
                      confirmations: "users/confirmations",
                      invitations: "users/invitations",
+                     omniauth_callbacks: "users/omniauth_callbacks",
                      passwords: "users/passwords",
                      registrations: "users/registrations",
                      sessions: "users/sessions",
