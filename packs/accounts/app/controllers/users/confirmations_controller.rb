@@ -53,7 +53,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
         f.govuk_submit "Submit"
       end
 
-      render "devise/shared/links"
+      render "users/shared/links"
     end
   end
 

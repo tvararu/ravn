@@ -55,7 +55,7 @@ class Users::PasswordsController < Devise::PasswordsController
         f.govuk_submit "Submit"
       end
 
-      render "devise/shared/links"
+      render "users/shared/links"
     end
   end
 
@@ -81,7 +81,7 @@ class Users::PasswordsController < Devise::PasswordsController
         f.govuk_submit "Update"
       end
 
-      render "devise/shared/links"
+      render "users/shared/links"
     end
   end
 end

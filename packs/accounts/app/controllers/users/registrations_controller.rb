@@ -81,7 +81,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         f.govuk_submit "Sign up"
       end
 
-      render "devise/shared/links"
+      render "users/shared/links"
     end
   end
 

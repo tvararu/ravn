@@ -45,7 +45,7 @@ class Users::SessionsController < Devise::SessionsController
         f.govuk_submit "Log in"
       end
 
-      render "devise/shared/links"
+      render "users/shared/links"
     end
   end
 end
