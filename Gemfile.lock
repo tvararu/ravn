@@ -160,7 +160,7 @@ GEM
       actionmailer (>= 5.0)
       devise (>= 4.6)
     docile (1.4.1)
-    dockerfile-rails (1.6.20)
+    dockerfile-rails (1.6.22)
       rails (>= 3.0.0)
     drb (2.2.1)
     erubi (1.13.0)
