@@ -11,6 +11,8 @@
 ARG RUBY_VERSION=3.3.6
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
+# Used by Fly to track which frameworks are in use
+# See: https://fly.io/javascript-journal/demystify-docker-js/#label
 LABEL fly_launch_runtime="rails"
 
 # Rails app lives here
