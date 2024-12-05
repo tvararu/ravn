@@ -160,8 +160,6 @@ GEM
       actionmailer (>= 5.0)
       devise (>= 4.6)
     docile (1.4.1)
-    dockerfile-rails (1.6.24)
-      rails (>= 3.0.0)
     drb (2.2.1)
     erubi (1.13.0)
     et-orbi (1.2.11)
@@ -573,7 +571,6 @@ DEPENDENCIES
   devise
   devise-pwned_password
   devise_invitable
-  dockerfile-rails
   flipper-active_record
   flipper-ui
   govuk_design_system_formbuilder

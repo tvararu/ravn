@@ -39,7 +39,6 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false # Linting
 
   gem "bullet"                                # N+1 query detection
-  gem "dockerfile-rails"                      # Dockerfile generation
   gem "rufo"                                  # Ruby formatter
 end
 
