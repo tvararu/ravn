@@ -4,50 +4,57 @@ ruby "3.3.3"
 
 gem "rails", "~> 8.0.0"
 
-gem "avo"
-gem "bootsnap", require: false
-gem "config"
-gem "cssbundling-rails"
-gem "devise"
-gem "devise-pwned_password"
-gem "devise_invitable"
-gem "flipper-active_record"
-gem "flipper-ui"
-gem "govuk_design_system_formbuilder"
-gem "jsbundling-rails"
-gem "mission_control-jobs"
-gem "omniauth-github"
-gem "omniauth-rails_csrf_protection"
-gem "packs-rails"
-gem "pg"
-gem "phlex-rails"
-gem "postmark-rails"
-gem "propshaft"
-gem "puma"
-gem "sentry-rails"
-gem "solid_queue"
-gem "stackprof"
-gem "stimulus-rails"
-gem "turbo-rails"
+# Framework default gems
+gem "bootsnap", require: false                # Reduces boot times
+gem "cssbundling-rails"                       # Sass support
+gem "jsbundling-rails"                        # ESBuild support
+gem "pg"                                      # PostgreSQL adapter
+gem "propshaft"                               # Asset pipeline
+gem "puma"                                    # Web server
+gem "solid_queue"                             # Background jobs
+gem "stimulus-rails"                          # Stimulus support
+gem "turbo-rails"                             # Turbo support
+gem "thruster", require: false                # Prod-ready proxy
+
+# 3rd party gems
+gem "avo"                                     # Admin panel
+gem "config"                                  # Settings support
+gem "devise"                                  # Auth/auth
+gem "devise-pwned_password"                   # Checks passwords on sign up
+gem "devise_invitable"                        # Invitable auth
+gem "flipper-active_record"                   # Feature flags
+gem "flipper-ui"                              # Feature flags dashboard
+gem "govuk_design_system_formbuilder"         # Form builder
+gem "mission_control-jobs"                    # Background jobs dashboard
+gem "omniauth-github"                         # GitHub auth
+gem "omniauth-rails_csrf_protection"          # CSRF protection for OmniAuth
+gem "packs-rails"                             # ./packs support
+gem "phlex-rails"                             # Reusable components
+gem "postmark-rails"                          # Email delivery
+gem "sentry-rails"                            # Error tracking
+gem "stackprof"                               # Needed by postmark
 
 group :development, :test do
-  gem "bullet"
-  gem "debug", platforms: %i[ mri windows ]
-  gem "dockerfile-rails"
-  gem "rubocop-rails-omakase", require: false
+  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem "brakeman", require: false              # Security static analysis
+  gem "rubocop-rails-omakase", require: false # Linting
+
+  gem "bullet"                                # N+1 query detection
+  gem "dockerfile-rails"                      # Dockerfile generation
+  gem "rufo"                                  # Ruby formatter
 end
 
 group :development do
-  gem "annotaterb"
-  gem "brakeman", require: false
-  gem "hotwire-livereload"
-  gem "minitest-macos-notification"
-  gem "rufo"
-  gem "web-console"
+  gem "web-console"                           # Console on error pages
+
+  gem "annotaterb"                            # Annotate models
+  gem "hotwire-livereload"                    # Reload browser on code changes
+  gem "minitest-macos-notification"           # Notifications on test failures
 end
 
 group :test do
-  gem "capybara"
-  gem "cuprite"
-  gem "simplecov", require: false
+  gem "capybara"                              # Browser testing
+
+  gem "cuprite"                               # Chromium testing
+  gem "simplecov", require: false             # Test coverage
 end
