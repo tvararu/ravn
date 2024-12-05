@@ -38,6 +38,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "annotaterb"
   gem "brakeman", require: false
   gem "hotwire-livereload"
   gem "minitest-macos-notification"
