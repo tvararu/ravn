@@ -1,7 +1,5 @@
 name: Test
-on:
-  push:
-    branches: ["**"]
+on: push
 jobs:
   rails:
     name: Rails

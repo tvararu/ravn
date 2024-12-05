@@ -1,7 +1,5 @@
 name: Lint
-on:
-  push:
-    branches: ["**"]
+on: push
 jobs:
   brakeman:
     name: Brakeman
