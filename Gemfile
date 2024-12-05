@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.3"
-
+ruby file: ".ruby-version"
 gem "rails", "~> 8.0.0"
 
 # Framework default gems
