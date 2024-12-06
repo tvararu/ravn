@@ -24,6 +24,9 @@ module Ravn
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # Use solid_queue as the queue adapter for ActiveJob
+    config.active_job.queue_adapter = :solid_queue
+
     # Use routes for 404, 500, and other errors.
     config.exceptions_app = routes
 
