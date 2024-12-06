@@ -258,7 +258,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    mission_control-jobs (0.6.0)
+    mission_control-jobs (1.0.1)
       actioncable (>= 7.1)
       actionpack (>= 7.1)
       activejob (>= 7.1)
@@ -526,7 +526,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
     uniform_notifier (1.16.0)
-    uri (0.13.1)
+    uri (1.0.2)
     useragent (0.16.11)
     version_gem (1.1.4)
     view_component (3.20.0)
