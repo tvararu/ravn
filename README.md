@@ -3,7 +3,6 @@
 ```sh
 asdf install
 bin/setup
-bin/dev
 ```
 
 ## Quick start
