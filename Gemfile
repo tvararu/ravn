@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby file: ".ruby-version"
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.0.1"
 
 # Framework default gems
 gem "bootsnap", require: false                # Reduces boot times
