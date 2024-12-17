@@ -17,7 +17,6 @@ gem "thruster", require: false                # Prod-ready proxy
 
 # 3rd party gems
 gem "avo"                                     # Admin panel
-gem "config"                                  # Settings support
 gem "devise"                                  # Auth/auth
 gem "devise-pwned_password"                   # Checks passwords on sign up
 gem "devise_invitable"                        # Invitable auth
