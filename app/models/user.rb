@@ -13,17 +13,8 @@
 #  index_users_on_email_address  (email_address) UNIQUE
 #
 class User < ApplicationRecord
-  has_many :memberships, dependent: :destroy
-  has_many :teams, through: :memberships
+  has_secure_password
+  has_many :sessions, dependent: :destroy
 
-  encrypts :email, deterministic: true, downcase: true
-
-  after_create :create_personal_team
-
-  private
-
-  def create_personal_team
-    team = Team.create!(name: "Personal")
-    memberships.create!(team:, personal: true)
-  end
+  normalizes :email_address, with: ->(e) { e.strip.downcase }
 end

@@ -4,6 +4,7 @@ ruby file: ".ruby-version"
 gem "rails", "~> 8.0.1"
 
 # Framework default gems
+gem "bcrypt"                                  # Password hashing
 gem "bootsnap", require: false                # Reduces boot times
 gem "cssbundling-rails"                       # Sass support
 gem "jsbundling-rails"                        # ESBuild support

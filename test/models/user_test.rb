@@ -12,18 +12,10 @@
 #
 #  index_users_on_email_address  (email_address) UNIQUE
 #
-class User < ApplicationRecord
-  has_many :memberships, dependent: :destroy
-  has_many :teams, through: :memberships
+require "test_helper"
 
-  encrypts :email, deterministic: true, downcase: true
-
-  after_create :create_personal_team
-
-  private
-
-  def create_personal_team
-    team = Team.create!(name: "Personal")
-    memberships.create!(team:, personal: true)
-  end
+class UserTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

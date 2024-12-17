@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Authentication
+
   default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
 
   layout -> { ApplicationLayout.new(current_user:) }
