@@ -1,7 +1,6 @@
 class Teams::InvitationsController < ApplicationController
   use_layout TwoThirdsLayout
 
-  before_action :authenticate_user!
   before_action :set_team
 
   def new

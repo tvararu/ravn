@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-
   def show
     memberships = current_user.memberships.eager_load(team: :users)
     render Show.new(memberships:)

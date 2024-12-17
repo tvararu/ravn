@@ -1,5 +1,4 @@
 class TeamsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_team, except: %i[new create]
 
   use_layout TwoThirdsLayout

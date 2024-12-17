@@ -17,15 +17,10 @@ gem "thruster", require: false                # Prod-ready proxy
 
 # 3rd party gems
 gem "avo"                                     # Admin panel
-gem "devise"                                  # Auth/auth
-gem "devise-pwned_password"                   # Checks passwords on sign up
-gem "devise_invitable"                        # Invitable auth
 gem "flipper-active_record"                   # Feature flags
 gem "flipper-ui"                              # Feature flags dashboard
 gem "govuk_design_system_formbuilder"         # Form builder
 gem "mission_control-jobs"                    # Background jobs dashboard
-gem "omniauth-github"                         # GitHub auth
-gem "omniauth-rails_csrf_protection"          # CSRF protection for OmniAuth
 gem "packs-rails"                             # ./packs support
 gem "phlex-rails"                             # Reusable components
 gem "postmark-rails"                          # Email delivery
