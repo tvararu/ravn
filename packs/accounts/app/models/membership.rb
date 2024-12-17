@@ -17,7 +17,6 @@
 # Foreign Keys
 #
 #  fk_rails_...  (team_id => teams.id)
-#  fk_rails_...  (user_id => users.id)
 #
 class Membership < ApplicationRecord
   belongs_to :team
