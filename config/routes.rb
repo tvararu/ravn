@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resource :session
-  resources :passwords, param: :token
-
   scope via: :all do
     get "/404", to: "errors#not_found"
     get "/406", to: "errors#not_acceptable"
