@@ -1,15 +1,11 @@
 class PagesController < ApplicationController
   def home
-    render Home.new(current_user:)
+    render Home.new
   end
 
   private
 
   class Home < ApplicationComponent
-    def initialize(current_user:)
-      @current_user = current_user
-    end
-
     def view_template
       article do
         main_heading "Home"
