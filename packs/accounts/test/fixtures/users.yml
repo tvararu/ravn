@@ -1,6 +1,9 @@
+<% password_digest = BCrypt::Password.create("password") %>
+
 alice:
   email: alice@example.com
-  confirmed_at: <%= 2.days.ago %>
+  password_digest: <%= password_digest %>
+
 bob:
   email: bob@example.com
-  confirmed_at: <%= 2.days.ago %>
+  password_digest: <%= password_digest %>
