@@ -52,5 +52,8 @@ module Ravn
         config.watchable_dirs[dir] = [:rb]
       end
     end
+
+    # TODO: Temporary
+    config.mission_control.jobs.http_basic_auth_enabled = false
   end
 end
