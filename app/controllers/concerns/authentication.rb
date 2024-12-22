@@ -14,6 +14,10 @@ module Authentication
 
   private
 
+  def current_user
+    resume_session&.user
+  end
+
   def authenticated?
     resume_session
   end
