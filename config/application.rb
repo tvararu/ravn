@@ -35,8 +35,8 @@ module Ravn
     config.autoload_paths << "#{root}/app/views/components"
     # :nocov:
     (Dir["packs/*/app/views/components"] +
-     Dir["packs/*/app/views/controllers/concerns"])
-      .each { config.autoload_paths << _1 }
+     Dir["packs/*/app/controllers/concerns"] +
+     Dir["packs/*/app/mailers"]).each { config.autoload_paths << _1 }
     # :nocov:
 
     # Override avo.autoload initializer to ensure packs/admin/app/avo/resources
