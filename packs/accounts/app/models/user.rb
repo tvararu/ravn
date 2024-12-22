@@ -13,9 +13,13 @@
 #  index_users_on_email  (email) UNIQUE
 #
 class User < ApplicationRecord
+  has_secure_password
+
   has_many :memberships, dependent: :destroy
+  has_many :sessions, dependent: :destroy
   has_many :teams, through: :memberships
 
+  normalizes :email, with: ->(e) { e.strip.downcase }
   encrypts :email, deterministic: true, downcase: true
 
   after_create :create_personal_team
