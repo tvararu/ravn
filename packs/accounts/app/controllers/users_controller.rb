@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       main_heading "Profile"
 
       p {
-        link_to "Change your password", edit_user_registration_path
+        link_to "Change your password", new_password_path
       }
 
       h2 { "Teams" }
