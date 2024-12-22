@@ -48,7 +48,7 @@ class ApplicationLayout < ApplicationComponent
               header.menu_link "Profile", profile_path
               header.menu_button "Sign out", session_path, method: :delete
             else
-              header.menu_link "Sign in", new_user_session_path
+              header.menu_link "Sign in", new_session_path
             end
           end
         end
