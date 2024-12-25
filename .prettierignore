@@ -38,3 +38,4 @@ terraform/.terraform
 *.tfstate
 *.tfstate.backup
 scratchpad
+packs/accounts/test/fixtures/users.yml
