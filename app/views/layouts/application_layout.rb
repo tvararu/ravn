@@ -1,7 +1,6 @@
 class ApplicationLayout < ApplicationComponent
   include Phlex::Rails::Helpers::Flash
   include Phlex::Rails::Layout
-  include Hotwire::Livereload::LivereloadTagsHelper if Rails.env.development?
 
   def initialize(current_user:)
     @current_user = current_user
@@ -30,7 +29,6 @@ class ApplicationLayout < ApplicationComponent
           type: "module",
           defer: true,
         )
-        hotwire_livereload_tags if Rails.env.development?
       end
 
       body(class: "govuk-template__body") do
