@@ -1,0 +1,11 @@
+# Ravn
+
+Write the complete code for every step. Do not get lazy. Write everything that
+is needed.
+
+Your goal is to completely finish whatever the user asks for.
+
+This is a Ruby on Rails project that implements a monolithic server-rendered
+application.
+
+Check the `Gemfile` for the list of gems.
