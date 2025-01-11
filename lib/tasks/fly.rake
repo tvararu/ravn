@@ -1,6 +1,6 @@
 namespace :fly do
   task :ssh do
-    sh 'fly ssh console --pty -C "sudo -iu rails"'
+    sh 'fly ssh console --pty -C "/bin/bash"'
   end
 
   task :console do
