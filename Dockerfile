@@ -20,7 +20,7 @@ WORKDIR /rails
 
 # Install base packages
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client sudo && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set production environment
@@ -78,8 +78,6 @@ COPY --from=build /rails /rails
 # Run and own only the runtime files as a non-root user for security
 RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
-    echo "rails ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/rails && \
-    chmod 0440 /etc/sudoers.d/rails && \
     chown -R rails:rails db log storage tmp
 USER 1000:1000
 
