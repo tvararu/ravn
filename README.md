@@ -1,7 +1,8 @@
 # 𝚛𝚊𝚟𝚗 🐦‍⬛
 
 ```sh
-asdf install
+brew install yarn
+mise install
 bin/setup
 ```
 
