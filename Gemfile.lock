@@ -80,7 +80,7 @@ GEM
     annotaterb (4.13.0)
     ansi (1.5.0)
     ast (2.4.2)
-    avo (3.16.5)
+    avo (3.17.3)
       actionview (>= 6.1)
       active_link_to
       activerecord (>= 6.1)
@@ -246,7 +246,7 @@ GEM
       railties (>= 7.1)
       stimulus-rails
       turbo-rails
-    msgpack (1.7.2)
+    msgpack (1.8.0)
     net-imap (0.5.1)
       date
       net-protocol
@@ -384,7 +384,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rdoc (6.11.0)
+    rdoc (6.12.0)
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
     reline (0.6.0)
