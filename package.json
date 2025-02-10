@@ -7,7 +7,7 @@
     "govuk-frontend": "^5.8.0"
   },
   "devDependencies": {
-    "esbuild": "^0.24.2",
+    "esbuild": "^0.25.0",
     "prettier": "^3.4.2",
     "sass": "^1.84.0"
   },
