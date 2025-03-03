@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "esbuild": "^0.25.0",
-    "sass": "^1.85.0",
+    "sass": "^1.85.1",
     "prettier": "^3.5.2"
   },
   "scripts": {
