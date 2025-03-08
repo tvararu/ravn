@@ -2,6 +2,8 @@ class ApplicationLayout < ApplicationComponent
   include Phlex::Rails::Helpers::Flash
   include Phlex::Rails::Layout
 
+  register_value_helper :page_title
+
   def initialize(current_user:)
     @current_user = current_user
   end
@@ -11,7 +13,7 @@ class ApplicationLayout < ApplicationComponent
 
     html(lang: "en", class: "govuk-template") do
       head do
-        title { helpers.page_title }
+        title { page_title }
         meta name: "viewport",
           content: "width=device-width,initial-scale=1,viewport-fit=cover"
         meta name: "theme-color", content: "#0b0c0c"
@@ -33,7 +35,7 @@ class ApplicationLayout < ApplicationComponent
 
       body(class: "govuk-template__body") do
         script do
-          unsafe_raw "document.body.className += ' js-enabled' +
+          raw safe "document.body.className += ' js-enabled' +
             ('noModule' in HTMLScriptElement.prototype
               ? ' govuk-frontend-supported'
               : '');"

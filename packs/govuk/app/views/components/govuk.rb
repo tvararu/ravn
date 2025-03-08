@@ -134,8 +134,7 @@ module GOVUK
     end
 
     def view_template
-      div(**classes("govuk-notification-banner",
-                    success?: "govuk-notification-banner--success"),
+      div(class: classes,
           data: { module: "govuk-notification-banner", turbo_temporary: true },
           role: "region",
           aria: { labelledby: "govuk-notification-banner-title" }) do
@@ -152,6 +151,13 @@ module GOVUK
     private
 
     def success? = @type == "success"
+
+    def classes
+      [
+        "govuk-notification-banner",
+        success?: "govuk-notification-banner--success",
+      ].compact.join(" ")
+    end
   end
 
   class SkipLink < ApplicationComponent
@@ -163,7 +169,10 @@ module GOVUK
   end
 
   class SummaryCard < ApplicationComponent
-    include Phlex::DeferredRender
+    def before_template(&)
+      vanish(&)
+      super
+    end
 
     def initialize
       @actions = []

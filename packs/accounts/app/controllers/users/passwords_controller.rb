@@ -47,7 +47,7 @@ class Users::PasswordsController < ApplicationController
       form_with url: passwords_path do |f|
         f.govuk_email_field :email,
                             autocomplete: "email",
-                            value: helpers.params[:email]
+                            value: params[:email]
 
         f.govuk_submit "Email reset instructions"
       end
@@ -58,7 +58,7 @@ class Users::PasswordsController < ApplicationController
     def view_template
       main_heading "Update your password"
 
-      form_with url: password_path(helpers.params[:token]), method: :put do |f|
+      form_with url: password_path(params[:token]), method: :put do |f|
         f.govuk_password_field :password,
                                autocomplete: "new-password",
                                label: { text: "Enter new password" }

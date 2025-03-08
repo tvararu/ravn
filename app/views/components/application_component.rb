@@ -8,6 +8,8 @@ class ApplicationComponent < Phlex::HTML
 
   include GOVUK::Helpers
 
+  register_value_helper :params
+
   unless Rails.env.production?
     def before_template
       comment { "Before #{self.class.name}" }
