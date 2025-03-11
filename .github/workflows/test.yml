@@ -30,4 +30,5 @@ jobs:
           cache: yarn
       - run: bin/rails db:test:prepare
       - run: bin/rails assets:precompile
+      - run: yarn playwright install chromium
       - run: bin/rails test:all test packs/*
