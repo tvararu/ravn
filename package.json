@@ -8,8 +8,9 @@
   },
   "devDependencies": {
     "esbuild": "^0.25.0",
-    "sass": "^1.85.1",
-    "prettier": "^3.5.3"
+    "playwright": "^1.51.0",
+    "prettier": "^3.5.3",
+    "sass": "^1.85.1"
   },
   "scripts": {
     "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",

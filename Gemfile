@@ -48,6 +48,6 @@ end
 group :test do
   gem "capybara"                              # Browser testing
 
-  gem "cuprite"                               # Chromium testing
+  gem "capybara-playwright-driver"            # Capybara driver
   gem "simplecov", require: false             # Test coverage
 end
