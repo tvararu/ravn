@@ -140,7 +140,7 @@ GEM
     connection_pool (2.5.0)
     constant_resolver (0.2.0)
     crass (1.0.6)
-    cssbundling-rails (1.4.2)
+    cssbundling-rails (1.4.3)
       railties (>= 6.0.0)
     date (3.4.1)
     debug (1.10.0)
